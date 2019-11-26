@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Picnat</string>
+    <string name="Welcome">welcome</string>
+    <string name="Next">Next</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="Login">Login</string>
+    <string name="social">SignUp</string>
+    <string name="rememberme">Remember me</string>
+</resources>

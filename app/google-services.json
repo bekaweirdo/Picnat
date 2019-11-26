@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "961936629474",
+    "firebase_url": "https://picnat-ae2c5.firebaseio.com",
+    "project_id": "picnat-ae2c5",
+    "storage_bucket": "picnat-ae2c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961936629474:android:5a945e49cc01b17e9008bb",
+        "android_client_info": {
+          "package_name": "com.example.picnat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "961936629474-dg3fht3fmnsrqkbouugqbcueq9maivhu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.picnat",
+            "certificate_hash": "5d2cfbdb4c6aee2fcfd7eb49826b7e201110cfe5"
+          }
+        },
+        {
+          "client_id": "961936629474-jneqqnkm8qr5p9q78phdrd6906cp972f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwygyhGK4NeBCTzoOJNBGC1PL_B_5ZQ8Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "961936629474-jneqqnkm8qr5p9q78phdrd6906cp972f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
