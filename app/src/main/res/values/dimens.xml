@@ -2,4 +2,6 @@
 <resources>
     <dimen name="title">36sp</dimen>
     <dimen name="icon_padding">10dp</dimen>
+    <dimen name="padding_top">30dp</dimen>
+    <dimen name="bottom_margin_register">100dp</dimen>
 </resources>

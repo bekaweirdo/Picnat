@@ -7,7 +7,7 @@ import android.util.Log
 import com.bumptech.glide.Glide
 import com.example.picnat.R
 import com.example.picnat.managers.SharedPreferencesManager
-import com.example.picnat.ui.Login.LoginActivity
+import com.example.picnat.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 import javax.inject.Inject
 
@@ -20,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
         sharedPreferences = SharedPreferencesManager(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-      //  (application as PicnatApplication).appComponent.SplashComponent().create().inject(this)
+      //  (application as PicnatApplication).appComponent.splashComponent().create().inject(this)
 
 
         Glide

@@ -1,6 +1,7 @@
 package com.example.picnat.di.component
 
 import android.content.Context
+import com.example.picnat.repository.RegistrationComponent
 import com.example.picnat.ui.splash.SplashComponent
 import dagger.BindsInstance
 import dagger.Component
@@ -15,5 +16,6 @@ interface AppComponent{
         fun create(@BindsInstance context: Context): AppComponent
     }
 
-    fun SplashComponent():SplashComponent.Factory
+    fun splashComponent():SplashComponent.Factory
+    fun registrationComponent(): RegistrationComponent.Factory
 }

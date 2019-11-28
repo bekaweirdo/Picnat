@@ -1,7 +1,8 @@
-package com.example.picnat
+package com.example.picnat.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.picnat.R
 
 class MainActivity : AppCompatActivity() {
 

@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/title"
-        android:text="@string/Welcome"
+        android:text="@string/welcome"
         android:background="#AA000000"
         android:textColor="#ffffffff"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,7 +28,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Next"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/btn_next"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
