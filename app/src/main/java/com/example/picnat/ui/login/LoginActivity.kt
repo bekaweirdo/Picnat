@@ -1,33 +1,37 @@
 package com.example.picnat.ui.login
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.example.PicnatApplication
 import com.example.picnat.R
 import com.example.picnat.databinding.ActivityLoginBinding
 import com.example.picnat.repository.AuthInterface
-import com.example.picnat.repository.UserRepository
 import com.example.picnat.ui.auth.AuthViewModel
 import com.example.picnat.ui.auth.AuthViewModelFactory
 import com.example.picnat.utils.startHomeActivity
-import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
+import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity(), AuthInterface {
     private lateinit var viewModel: AuthViewModel
 
-    private val factory: AuthViewModelFactory? = null
+    @Inject
+    lateinit var viewModelFactory: AuthViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityLoginBinding = DataBindingUtil.setContentView(this,R.layout.activity_login)
-        viewModel = ViewModelProviders.of(this,factory)[AuthViewModel::class.java]
+
+        (application as PicnatApplication).appComponent.inject(this)
+
+        val binding: ActivityLoginBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_login)
+
+        viewModel = ViewModelProviders.of(this, viewModelFactory)[AuthViewModel::class.java]
+
         binding.viewmodel = viewModel
 
         viewModel.authListener = this
@@ -45,12 +49,12 @@ class LoginActivity : AppCompatActivity(), AuthInterface {
 
     override fun onFailure(message: String) {
         progressbar.visibility = View.GONE
-        Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onStart() {
         super.onStart()
-        viewModel.user?.let{
+        viewModel.user?.let {
             startHomeActivity()
         }
     }

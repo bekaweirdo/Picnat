@@ -4,14 +4,15 @@ import com.google.firebase.auth.FirebaseAuth
 import io.reactivex.Completable
 
 class FirebaseDataSource {
+
     private val firebaseAuth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
     }
 
-    fun login(email: String, password: String) = Completable.create { emitter->
-        firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener {
-            if(!emitter.isDisposed){
-                if(it.isSuccessful)
+    fun login(email: String, password: String) = Completable.create { emitter ->
+        firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+            if (!emitter.isDisposed) {
+                if (it.isSuccessful)
                     emitter.onComplete()
                 else
                     emitter.onError(it.exception!!)
@@ -19,10 +20,10 @@ class FirebaseDataSource {
         }
     }
 
-    fun register(email: String, password: String) = Completable.create {emitter ->
-        firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener {
-            if(!emitter.isDisposed){
-                if(it.isSuccessful)
+    fun register(email: String, password: String) = Completable.create { emitter ->
+        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
+            if (!emitter.isDisposed) {
+                if (it.isSuccessful)
                     emitter.onComplete()
                 else
                     emitter.onError(it.exception!!)
