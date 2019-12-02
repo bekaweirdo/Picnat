@@ -1,136 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="viewmodel"
             type="com.example.picnat.ui.auth.AuthViewModel" />
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.login.LoginActivity"
-    tools:layout_editor_absoluteY="81dp">
 
-    <RelativeLayout
-        android:id="@+id/rootView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/background" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/picnat_logo"
-            android:layout_above="@id/registerLayout"
-            />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.login.LoginActivity"
+        tools:layout_editor_absoluteY="81dp">
 
         <RelativeLayout
-            android:id="@+id/registerLayout"
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="50dp"
-            android:layout_height="wrap_content">
+            android:id="@+id/rootView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:id="@+id/lnemail"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_above="@id/registerLayout"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_picnat_logo" />
+
+            <RelativeLayout
+                android:id="@+id/registerLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="50dp">
 
-
-                <EditText
-                    android:id="@+id/tvemail"
-                    android:drawableLeft="@drawable/ic_email_black_24dp"
-                    android:drawablePadding="@dimen/icon_padding"
+                <LinearLayout
+                    android:id="@+id/lnemail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:hint="@string/email"
-                    android:text="@={viewmodel.email}"
-                    android:imeOptions="actionNext"
-                    android:backgroundTint="@color/colorWhite"
-                    android:inputType="textEmailAddress"
-                    android:textColor="@color/colorWhite"
-                    android:textColorHint="@color/colorHint"
-                    android:textSize="14sp" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-            </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/lnpassword"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/lnemail"
-                android:layout_width="match_parent"
+                    <EditText
+                        android:id="@+id/tvemail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:backgroundTint="@color/colorWhite"
+                        android:drawableLeft="@drawable/ic_email_black_24dp"
+                        android:drawablePadding="@dimen/icon_padding"
+                        android:hint="@string/email"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress"
+                        android:text="@={viewmodel.email}"
+                        android:textColor="@color/colorWhite"
+                        android:textColorHint="@color/colorHint"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lnpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/lnemail"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+
+                    <EditText
+                        android:id="@+id/tvpassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:backgroundTint="@color/colorWhite"
+                        android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
+                        android:drawablePadding="@dimen/icon_padding"
+                        android:hint="@string/password"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:text="@={viewmodel.password}"
+                        android:textColor="@color/colorWhite"
+                        android:textColorHint="@color/colorHint"
+                        android:textSize="14sp" />
+
+
+                    <EditText
+                        android:id="@+id/tvrepeatpassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:backgroundTint="@color/colorWhite"
+                        android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
+                        android:drawablePadding="@dimen/icon_padding"
+                        android:hint="@string/repeatPassword"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:paddingTop="@dimen/padding_top"
+                        android:text="@={viewmodel.password}"
+                        android:textColor="@color/colorWhite"
+                        android:textColorHint="@color/colorHint"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/lnpassword"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="@dimen/bottom_margin_register"
+                    android:onClick="@{() -> viewmodel.singup()}"
+                    android:text="@string/register"
+                    android:textAllCaps="false"
+                    android:textSize="12dp" />
+
+
+            </RelativeLayout>
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="vertical">
-
-
-                <EditText
-                    android:id="@+id/tvpassword"
-                    android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
-                    android:drawablePadding="@dimen/icon_padding"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:hint="@string/password"
-                    android:text="@={viewmodel.password}"
-                    android:imeOptions="actionNext"
-                    android:backgroundTint="@color/colorWhite"
-                    android:inputType="textPassword"
-                    android:textColor="@color/colorWhite"
-                    android:textColorHint="@color/colorHint"
-                    android:textSize="14sp" />
-
-
-                <EditText
-                    android:id="@+id/tvrepeatpassword"
-                    android:paddingTop="@dimen/padding_top"
-                    android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
-                    android:drawablePadding="@dimen/icon_padding"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:hint="@string/repeatPassword"
-                    android:imeOptions="actionNext"
-                    android:text="@={viewmodel.password}"
-                    android:backgroundTint="@color/colorWhite"
-                    android:inputType="textPassword"
-                    android:textColor="@color/colorWhite"
-                    android:textColorHint="@color/colorHint"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/btRegister"
-                android:layout_below="@id/lnpassword"
-                android:layout_width="match_parent"
-                android:layout_marginBottom="@dimen/bottom_margin_register"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:onClick="@{() -> viewmodel.singup()}"
-                android:text="@string/register"
-                android:textAllCaps="false"
-                android:textSize="12dp" />
-
+                android:layout_centerInParent="true"
+                android:visibility="gone" />
 
         </RelativeLayout>
-
-    </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
