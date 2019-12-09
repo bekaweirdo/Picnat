@@ -1,6 +1,5 @@
-package com.example.picnat.repository
+package com.example.picnat.ui.register
 
-import com.example.picnat.ui.register.RegisterActivity
 import dagger.Subcomponent
 
 @Subcomponent

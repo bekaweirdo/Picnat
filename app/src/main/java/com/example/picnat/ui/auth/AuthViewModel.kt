@@ -3,11 +3,13 @@ package com.example.picnat.ui.auth
 
 import android.content.Intent
 import android.view.View
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.picnat.repository.AuthInterface
 import com.example.picnat.repository.UserRepository
 import com.example.picnat.ui.login.LoginActivity
 import com.example.picnat.ui.register.RegisterActivity
+import com.google.firebase.auth.FirebaseUser
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -20,9 +22,6 @@ class AuthViewModel (private val repository: UserRepository): ViewModel() {
 
     private val disposables = CompositeDisposable()
 
-    val user by lazy {
-        repository.currentUser()
-    }
 
     fun login(){
 
@@ -61,6 +60,7 @@ class AuthViewModel (private val repository: UserRepository): ViewModel() {
         disposables.add(disposable)
     }
 
+
     fun goToSignup(view: View){
         Intent(view.context,RegisterActivity::class.java).also {
             view.context.startActivity(it)
@@ -71,6 +71,10 @@ class AuthViewModel (private val repository: UserRepository): ViewModel() {
         Intent(view.context,LoginActivity::class.java).also {
             view.context.startActivity(it)
         }
+    }
+
+    fun getCurrentUser(): LiveData<FirebaseUser>{
+        return repository.currentUser()
     }
 
     override fun onCleared() {

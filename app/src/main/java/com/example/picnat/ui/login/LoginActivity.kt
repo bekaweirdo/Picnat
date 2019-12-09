@@ -54,9 +54,9 @@ class LoginActivity : AppCompatActivity(), AuthInterface {
 
     override fun onStart() {
         super.onStart()
-        viewModel.user?.let {
-            startHomeActivity()
-        }
+//        viewModel.user?.let {
+//            startHomeActivity()
+//        }
     }
 
 }

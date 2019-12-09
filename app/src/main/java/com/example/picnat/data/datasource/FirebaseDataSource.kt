@@ -1,9 +1,13 @@
 package com.example.picnat.data.datasource
 
+import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import io.reactivex.Completable
 
 class FirebaseDataSource {
+
+    val currentUser: MutableLiveData<FirebaseUser> = MutableLiveData()
 
     private val firebaseAuth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
@@ -33,5 +37,6 @@ class FirebaseDataSource {
 
     fun logout() = firebaseAuth.signOut()
 
-    fun currentUser() = firebaseAuth.currentUser
+    fun currentUser() = currentUser.postValue(firebaseAuth.currentUser)
+
 }

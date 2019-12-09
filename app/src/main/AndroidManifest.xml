@@ -3,6 +3,7 @@
     package="com.example.picnat">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.example.PicnatApplication"
         android:allowBackup="true"
@@ -13,14 +14,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.register.RegisterActivity" />
         <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".ui.splash.SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".ui.home.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

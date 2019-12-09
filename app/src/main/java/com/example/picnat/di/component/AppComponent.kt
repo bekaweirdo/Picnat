@@ -2,7 +2,8 @@ package com.example.picnat.di.component
 
 import android.content.Context
 import com.example.picnat.di.module.AppModule
-import com.example.picnat.repository.RegistrationComponent
+import com.example.picnat.ui.home.HomeFragment
+import com.example.picnat.ui.register.RegistrationComponent
 import com.example.picnat.ui.login.LoginActivity
 import com.example.picnat.ui.splash.SplashComponent
 import dagger.BindsInstance
@@ -22,4 +23,5 @@ interface AppComponent {
     fun registrationComponent(): RegistrationComponent.Factory
 
     fun inject(loginActivity: LoginActivity)
+    fun inject(homeFragment: HomeFragment)
 }

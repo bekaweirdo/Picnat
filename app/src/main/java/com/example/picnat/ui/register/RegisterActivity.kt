@@ -13,7 +13,7 @@ import com.example.picnat.databinding.ActivityRegisterBinding
 import com.example.picnat.repository.AuthInterface
 import com.example.picnat.ui.auth.AuthViewModel
 import com.example.picnat.ui.auth.AuthViewModelFactory
-import com.example.picnat.ui.home.MainActivity
+import com.example.picnat.MainActivity
 import com.example.picnat.utils.startHomeActivity
 import kotlinx.android.synthetic.main.activity_register.*
 import javax.inject.Inject

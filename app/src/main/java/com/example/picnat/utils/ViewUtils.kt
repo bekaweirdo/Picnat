@@ -2,7 +2,7 @@ package com.example.picnat.utils
 
 import android.content.Context
 import android.content.Intent
-import com.example.picnat.ui.home.MainActivity
+import com.example.picnat.MainActivity
 import com.example.picnat.ui.login.LoginActivity
 
 //Log in
