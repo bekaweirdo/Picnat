@@ -10,7 +10,8 @@ import com.example.picnat.R
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.fragment_home_item.view.*
 
-class HomeAdapter(val context: Context?, private val userList: FirebaseUser?): RecyclerView.Adapter<HomeAdapter.HomeViewHolder>(){
+class HomeAdapter(val context: Context?): RecyclerView.Adapter<HomeAdapter.HomeViewHolder>(){
+    lateinit var userList: FirebaseUser
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder{
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.fragment_home_item,parent,false)
         return HomeViewHolder(itemView)
@@ -20,7 +21,7 @@ class HomeAdapter(val context: Context?, private val userList: FirebaseUser?): R
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
 
-        holder.username.text = userList?.email
+        holder.username.text = userList.email
 
         // TODO
         //  holder?.profilePicture
@@ -31,5 +32,10 @@ class HomeAdapter(val context: Context?, private val userList: FirebaseUser?): R
     class HomeViewHolder(itemView:View): RecyclerView.ViewHolder(itemView){
         var username = itemView.username
         var profilePicture = itemView.userProfile
+    }
+
+    fun updateData(currentUser: FirebaseUser){
+        userList = currentUser
+        notifyDataSetChanged()
     }
 }

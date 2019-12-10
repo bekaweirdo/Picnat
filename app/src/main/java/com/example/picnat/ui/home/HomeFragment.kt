@@ -41,6 +41,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initializeAdapter()
         setupView()
     }
 
@@ -50,17 +51,17 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupView(){
-        var firebaseUser: FirebaseUser ?= null
         viewModel.getCurrentUser().observe(this,Observer<FirebaseUser>{
-            //TODO BUG HAS TO FIX
-            firebaseUser = it
-            Log.d("firebase","firebaseUser" + firebaseUser?.email + "it" + it.email)
-        })
-        recyclerViewHome.layoutManager = LinearLayoutManager(activity)
-        Log.d("firebase","firebaseUser" + firebaseUser?.email)
-        adapter = HomeAdapter(activity,firebaseUser)
-        recyclerViewHome.adapter = adapter
-        adapter?.notifyDataSetChanged()
+            adapter?.updateData(it)
 
+        })
+
+        // adapter = HomeAdapter(activity,firebaseUser)
+        recyclerViewHome.adapter = adapter
+    }
+    private fun initializeAdapter(){
+        recyclerViewHome.layoutManager = LinearLayoutManager(activity)
+        adapter = HomeAdapter(activity)
+        recyclerViewHome.adapter = adapter
     }
 }
