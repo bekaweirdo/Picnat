@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="swapAnimationDuration">300</integer>
+    <integer name="swapAnimationButtonFromDegrees">0</integer>
+    <integer name="swapAnimationButtonToDegrees">180</integer>
+    <integer name="swapAnimationButtonStartOffset">0</integer>
+    <item name="swapAnimationButtonPivotX" type="dimen">50%</item>
+    <item name="swapAnimationButtonPivotY" type="dimen">50%</item>
+    <item name="fadeInAnimationFromAlpha" format="float" type="dimen">0.1</item>
+    <item name="fadeInAnimationToAlpha" format="float" type="dimen">1.0</item>
+    <item name="fadeOutAnimationFromAlpha" format="float" type="dimen">1.0</item>
+    <item name="fadeOutAnimationToAlpha" format="float" type="dimen">0.1</item>
+</resources>

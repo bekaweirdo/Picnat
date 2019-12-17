@@ -5,6 +5,7 @@ import com.example.picnat.di.module.AppModule
 import com.example.picnat.ui.home.HomeFragment
 import com.example.picnat.ui.register.RegistrationComponent
 import com.example.picnat.ui.login.LoginActivity
+import com.example.picnat.ui.settings.SettingsFragment
 import com.example.picnat.ui.splash.SplashComponent
 import dagger.BindsInstance
 import dagger.Component
@@ -24,4 +25,5 @@ interface AppComponent {
 
     fun inject(loginActivity: LoginActivity)
     fun inject(homeFragment: HomeFragment)
+    fun inject(settingsFragment: SettingsFragment)
 }

@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.fragment_home_item.view.*
 
 class HomeAdapter(val context: Context?): RecyclerView.Adapter<HomeAdapter.HomeViewHolder>(){
-    lateinit var userList: FirebaseUser
+    var userList: FirebaseUser? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder{
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.fragment_home_item,parent,false)
         return HomeViewHolder(itemView)
@@ -21,7 +21,7 @@ class HomeAdapter(val context: Context?): RecyclerView.Adapter<HomeAdapter.HomeV
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
 
-        holder.username.text = userList.email
+        holder.username.text = userList?.email
 
         // TODO
         //  holder?.profilePicture

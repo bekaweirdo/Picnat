@@ -11,8 +11,11 @@
     <string name="home">Home</string>
     <string name="messages">Messages</string>
     <string name="settings">Settings</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="welcome_array">
+        <item name="slide_1_title">Welcome to Picnat. Let\'s enjoy your journey with us </item>
+        <item name="slide_2_title">Well done. By signing up, you;ve taken your first step towards a happier,healthier life. We\'ll do everything we can to help and support you</item>
+    </string-array>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="internet_connection">Internet Connection restored</string>
+    <string name="skip">Skip</string>
 </resources>

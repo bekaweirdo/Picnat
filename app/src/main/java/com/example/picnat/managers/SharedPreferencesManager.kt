@@ -13,12 +13,12 @@ class SharedPreferencesManager @Inject constructor(context: Context){
         mEditor = mPref.edit()
     }
 
-    fun saveSplashLauncher(){
-        mEditor.putString(PARAM_SPLASH_LAUNCHER,"1").apply()
+    fun setFirstTimeLaunch(isFirstTime: Boolean){
+        mEditor.putBoolean(PARAM_SPLASH_LAUNCHER,isFirstTime).apply()
     }
 
-    fun getSplashLauncher(): String? {
-        return mPref.getString(PARAM_SPLASH_LAUNCHER,"0")
+    fun isFirstTimeLaunch(): Boolean {
+        return mPref.getBoolean(PARAM_SPLASH_LAUNCHER,true)
     }
     companion object{
         private val PREF_NAME = "PicnatPref"

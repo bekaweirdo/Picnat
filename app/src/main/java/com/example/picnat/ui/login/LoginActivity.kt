@@ -2,6 +2,9 @@ package com.example.picnat.ui.login
 
 import android.os.Bundle
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -39,16 +42,18 @@ class LoginActivity : AppCompatActivity(), AuthInterface {
     }
 
     override fun onStarted() {
-        progressbar.visibility = View.VISIBLE
+        val animFadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out)
+        groupLoggedIn.startAnimation(animFadeOut)
+        progressbar.visibility = VISIBLE
     }
 
     override fun onSuccess() {
-        progressbar.visibility = View.GONE
+        progressbar.visibility = GONE
         startHomeActivity()
     }
 
     override fun onFailure(message: String) {
-        progressbar.visibility = View.GONE
+        progressbar.visibility = GONE
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 

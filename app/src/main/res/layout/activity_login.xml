@@ -31,6 +31,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupLoggedIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="tvemail,tvpassword"/>
+
         <EditText
             android:id="@+id/tvemail"
             android:layout_width="match_parent"
@@ -64,7 +70,7 @@
             android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
             android:drawablePadding="@dimen/icon_padding"
             android:hint="@string/password"
-            android:imeOptions="actionNext"
+            android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:text="@={viewmodel.password}"
             android:textColor="@color/colorWhite"

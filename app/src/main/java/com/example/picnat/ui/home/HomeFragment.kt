@@ -55,8 +55,6 @@ class HomeFragment : Fragment() {
             adapter?.updateData(it)
 
         })
-
-        // adapter = HomeAdapter(activity,firebaseUser)
         recyclerViewHome.adapter = adapter
     }
     private fun initializeAdapter(){

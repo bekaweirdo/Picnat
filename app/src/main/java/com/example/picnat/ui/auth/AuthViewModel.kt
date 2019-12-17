@@ -76,6 +76,9 @@ class AuthViewModel (private val repository: UserRepository): ViewModel() {
     fun getCurrentUser(): LiveData<FirebaseUser>{
         return repository.currentUser()
     }
+    fun logout(){
+        repository.logout()
+    }
 
     override fun onCleared() {
         super.onCleared()

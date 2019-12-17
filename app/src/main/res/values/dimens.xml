@@ -4,4 +4,6 @@
     <dimen name="icon_padding">10dp</dimen>
     <dimen name="padding_top">30dp</dimen>
     <dimen name="bottom_margin_register">100dp</dimen>
+    <dimen name="welcome_slide1_message_size">24sp</dimen>
+    <dimen name="welcome_slide2_message_size">20sp</dimen>
 </resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillAfter="true">
+
+    <alpha
+        android:duration="@integer/swapAnimationDuration"
+        android:fromAlpha="@dimen/fadeInAnimationFromAlpha"
+        android:interpolator="@android:anim/decelerate_interpolator"
+        android:toAlpha="@dimen/fadeInAnimationToAlpha" />
+
+</set>

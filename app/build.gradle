@@ -46,9 +46,13 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
 
+    //ViewPager2 for navigation splash screen
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+
     //Firebase auth
     def firebase_version = "19.2.0"
     implementation 'com.google.firebase:firebase-auth:19.2.0'
+    implementation 'com.google.firebase:firebase-storage:16.0.4'
     implementation "com.google.firebase:firebase-database:$firebase_version"
 
     //RxJava for asynchronous
