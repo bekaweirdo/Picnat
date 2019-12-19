@@ -13,33 +13,15 @@
           "package_name": "com.example.picnat"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "961936629474-dg3fht3fmnsrqkbouugqbcueq9maivhu.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.picnat",
-            "certificate_hash": "5d2cfbdb4c6aee2fcfd7eb49826b7e201110cfe5"
-          }
-        },
-        {
-          "client_id": "961936629474-jneqqnkm8qr5p9q78phdrd6906cp972f.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAwygyhGK4NeBCTzoOJNBGC1PL_B_5ZQ8Q"
+          "current_key": "AIzaSyARtfmYCwPpjsyMHuCuXLToAQr-Bva3v70"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "961936629474-jneqqnkm8qr5p9q78phdrd6906cp972f.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

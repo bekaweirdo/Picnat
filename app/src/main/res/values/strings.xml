@@ -9,7 +9,7 @@
     <string name="register">Sign Up</string>
     <string name="forgotPassword">Forgot Password?</string>
     <string name="home">Home</string>
-    <string name="messages">Messages</string>
+    <string name="map">Map</string>
     <string name="settings">Settings</string>
     <string-array name="welcome_array">
         <item name="slide_1_title">Welcome to Picnat. Let\'s enjoy your journey with us </item>

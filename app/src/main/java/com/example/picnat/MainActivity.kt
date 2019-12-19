@@ -40,9 +40,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 true
             }
-            R.id.messages -> {
-                if(navController.currentDestination?.id != R.id.messageFragment){
-                    navController.navigate(R.id.action_global_messageFragment)
+            R.id.map -> {
+                if(navController.currentDestination?.id != R.id.mapFragment){
+                    navController.navigate(R.id.action_global_mapFragment)
                 }
                 true
             }

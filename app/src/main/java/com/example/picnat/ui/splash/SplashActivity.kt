@@ -1,6 +1,7 @@
 package com.example.picnat.ui.splash
 
 import android.content.Intent
+import android.graphics.drawable.AnimatedVectorDrawable
 import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
     @Inject
     lateinit var sharedPreferences: SharedPreferencesManager
     private lateinit var splashViewPager: com.example.picnat.ui.splash.fragments.PagerAdapter
-    private lateinit var rocketAnimation: AnimationDrawable
+    private lateinit var animation: AnimatedVectorDrawable
     private var isLastPageSwiped: Boolean = false
     private var counterPageScroll: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,10 +28,6 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         setupViewPager()
-        val rocketImage = findViewById<ImageView>(R.id.btn_next).apply {
-            setBackgroundResource(R.drawable.spin_animation)
-            rocketAnimation = background as AnimationDrawable
-        }
         btn_skip.setOnClickListener {
             launchHomeScreen()
         }
@@ -75,8 +72,8 @@ class SplashActivity : AppCompatActivity() {
                         isLastPageSwiped=true
                         btn_skip.visibility = View.GONE
                         btn_arrow.visibility = View.GONE
-                        //btn_next.setImageResource(R.drawable.ic_done_black_24dp)
-                        rocketAnimation.start()
+                        animation = btn_next.drawable as AnimatedVectorDrawable
+                        animation.start()
 
             }
         }

@@ -1,0 +1,33 @@
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:name="vector"
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="24"
+            android:viewportHeight="24">
+            <path
+                android:name="path"
+                android:pathData="M 9 16.2 L 4.8 12 L 3.4 13.4 L 9 19 L 21 7 L 19.6 5.6 L 9 16.2 Z"/>
+            <group android:name="group">
+                <path
+                    android:name="path_1"
+                    android:pathData="M 12 4 L 10.59 5.41 L 16.17 11 L 4 11 L 4 13 L 16.17 13 L 10.59 18.59 L 12 20 L 20 12 Z"
+                    android:fillColor="#FF000000"/>
+            </group>
+        </vector>
+    </aapt:attr>
+    <target android:name="path_1">
+        <aapt:attr name="android:animation">
+            <objectAnimator
+                android:propertyName="pathData"
+                android:duration="300"
+                android:valueFrom="M 12.349 16.828 L 13.967 15.207 L 15.069 14.104 L 16.17 13 L 15.19 13 L 14.209 13 L 13.719 13 L 13.474 13 L 13.229 13 L 12.248 13 L 11.132 13 L 10.017 13 L 8.876 13 L 7.736 13 L 6.491 13 L 5.245 13 L 4 13 L 4 13 L 4 11 L 16.17 11 L 10.59 5.41 L 12 4 L 20 12 L 12 20 L 10.59 18.59 L 10.59 18.59 L 10.59 18.59 L 10.59 18.59 L 12.349 16.828"
+                android:valueTo="M 12 16 L 13.5 14.5 L 14.25 13.75 L 14.438 13.563 L 14.625 13.375 L 15 13 L 21 7 L 19.6 5.6 L 9 16.2 L 9 16.2 L 8.16 15.36 L 7.74 14.94 L 7.32 14.52 L 6.48 13.68 L 5.64 12.84 L 4.8 12 L 4.1 12.7 L 3.75 13.05 L 3.4 13.4 L 6.2 16.2 L 7.133 17.133 L 7.444 17.444 L 7.756 17.756 L 8.067 18.067 L 8.884 18.884 L 9 19 L 9 19 L 10.5 17.5 L 12 16"
+                android:valueType="pathType"
+                android:interpolator="@android:interpolator/linear_out_slow_in"/>
+        </aapt:attr>
+    </target>
+</animated-vector>
