@@ -6,4 +6,6 @@
     <dimen name="bottom_margin_register">100dp</dimen>
     <dimen name="welcome_slide1_message_size">24sp</dimen>
     <dimen name="welcome_slide2_message_size">20sp</dimen>
+    <dimen name="default_image_width">480px</dimen>
+    <dimen name="default_image_height">270px</dimen>
 </resources>
