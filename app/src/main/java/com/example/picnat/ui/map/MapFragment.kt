@@ -11,8 +11,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.ViewModelProviders
 
 import com.example.picnat.R
+import com.example.picnat.data.model.PlaceInfo
+import com.example.picnat.ui.map.adapter.BookmarkInfoWindowAdapter
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -20,16 +23,15 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.PointOfInterest
+import com.google.android.gms.maps.model.*
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.PhotoMetadata
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.api.net.FetchPhotoRequest
 import com.google.android.libraries.places.api.net.FetchPlaceRequest
 import com.google.android.libraries.places.api.net.PlacesClient
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class MapFragment : Fragment(), OnMapReadyCallback {
@@ -37,6 +39,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var placesClient: PlacesClient
+    private lateinit var mapsViewModel: MapsViewModel
 
     companion object {
         private const val REQUEST_LOCATION = 1
@@ -60,11 +63,15 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         setupPlacesClient()
     }
 
+    private fun setupViewModel(){
+        mapsViewModel = ViewModelProviders.of(this).get(MapsViewModel::class.java)
+    }
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         setupMapListeners()
+        setupViewModel()
         getCurrentLocation()
-
     }
 
     private fun getCurrentLocation(){
@@ -152,8 +159,12 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun setupMapListeners(){
+        mMap.setInfoWindowAdapter(BookmarkInfoWindowAdapter(this))
         mMap.setOnPoiClickListener {
             displayPoi(it)
+        }
+        mMap.setOnInfoWindowClickListener {
+            handleInfoWindowClick(it)
         }
     }
 
@@ -183,15 +194,22 @@ class MapFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun displayPoiDisplayStep(place: Place, photo: Bitmap?){
-        val iconPhoto = if(photo == null){
-            BitmapDescriptorFactory.defaultMarker()
-        }else{
-            BitmapDescriptorFactory.fromBitmap(photo)
-        }
-        mMap.addMarker(MarkerOptions()
+        val marker = mMap.addMarker(MarkerOptions()
             .position(place.latLng as LatLng)
-            .icon(iconPhoto)
             .title(place.name)
-            .snippet(place.phoneNumber))
+            .snippet(place.phoneNumber)
+        )
+        marker?.tag = PlaceInfo(place,photo)
     }
+        private fun handleInfoWindowClick(marker: Marker) {
+            val placeInfo = (marker.tag as PlaceInfo)
+            if (placeInfo.place != null) {
+                mapsViewModel.addBookmarkFromPlace(placeInfo.place, placeInfo.image)
+            }
+            marker.remove()
+            GlobalScope.launch {
+                mapsViewModel.addBookmarkFromPlace(placeInfo.place,placeInfo.image)
+            }
+        }
+
 }
