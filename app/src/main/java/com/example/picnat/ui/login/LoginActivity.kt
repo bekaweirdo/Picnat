@@ -1,8 +1,8 @@
 package com.example.picnat.ui.login
 
 import android.os.Bundle
-import android.view.View.VISIBLE
-import android.view.animation.AnimationUtils
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.example.PicnatApplication
@@ -14,6 +14,9 @@ import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var viewModel: AuthViewModel
+    private lateinit var emailEditText : EditText
+    private lateinit var passwordEditText : EditText
+
 
     @Inject
     lateinit var viewModelFactory: AuthViewModelFactory
@@ -25,7 +28,19 @@ class LoginActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_login)
 
+        emailEditText = findViewById(R.id.loginEmailEditText)
+        passwordEditText = findViewById(R.id.loginPasswordEditText)
+
+
         viewModel = ViewModelProviders.of(this, viewModelFactory)[AuthViewModel::class.java]
+        loginButton.setOnClickListener{
+            val email = emailEditText.text.toString()
+            val password = passwordEditText.text.toString()
+            if (email.isBlank() || password.isBlank())
+                Toast.makeText(baseContext, "Email or password is blank!", Toast.LENGTH_SHORT).show()
+            else
+                viewModel.login(email, password)
+        }
     }
 
 //    override fun onStarted() {

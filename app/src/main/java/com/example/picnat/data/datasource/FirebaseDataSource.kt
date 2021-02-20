@@ -2,10 +2,11 @@ package com.example.picnat.data.datasource
 
 import androidx.lifecycle.MutableLiveData
 import com.example.picnat.data.ResponseState
-import com.example.picnat.data.model.User
+import com.example.picnat.data.ResponseState.Companion.failed
+import com.example.picnat.data.ResponseState.Companion.success
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.tasks.await
 
 class FirebaseDataSource {
 
@@ -15,18 +16,26 @@ class FirebaseDataSource {
         FirebaseAuth.getInstance()
     }
 
-    fun login(email: String, password: String): ResponseState<FirebaseUser?> {
-        val request = firebaseAuth.signInWithEmailAndPassword(email, password)
-        return if (request.isSuccessful)
-            ResponseState.success(request.result?.user)
-        else ResponseState.failed(request.exception.toString())
+    suspend fun login(email: String, password: String): ResponseState<FirebaseUser?> {
+        return try {
+            val data = firebaseAuth
+                .signInWithEmailAndPassword(email, password)
+                .await()
+            success(data.user)
+        } catch (e: Exception) {
+            failed(e.message.toString())
+        }
     }
 
-    fun register(email: String, password: String): ResponseState<FirebaseUser?> {
-        val request = firebaseAuth.createUserWithEmailAndPassword(email, password)
-        return if (request.isSuccessful)
-            ResponseState.success(request.result?.user)
-        else ResponseState.failed(request.exception.toString())
+    suspend fun register(email: String, password: String): ResponseState<FirebaseUser?> {
+        return try {
+            val data = firebaseAuth
+                .createUserWithEmailAndPassword(email, password)
+                .await()
+            success(data.user)
+        } catch (e: Exception) {
+            failed(e.message.toString())
+        }
     }
 
     fun logout() = firebaseAuth.signOut()
