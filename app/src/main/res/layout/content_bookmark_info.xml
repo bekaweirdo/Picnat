@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="5dp">
+
     <ImageView
         android:id="@+id/photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
         android:adjustViewBounds="true"
+        android:contentDescription="@string/bookmark_image"
         android:maxWidth="200dp"
         android:scaleType="fitStart"
-        android:contentDescription="@string/bookmark_image"
-        android:src="@drawable/background_picnat"/>
+        android:src="@drawable/background_picnat" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
@@ -28,7 +30,8 @@
             android:textColor="#ff000000"
             android:textSize="14sp"
             android:textStyle="bold"
-            tools:text="Place Title"/>
+            tools:text="Place Title" />
+
         <TextView
             android:id="@+id/phone"
             android:layout_width="wrap_content"
@@ -37,6 +40,6 @@
             android:maxLines="1"
             android:textColor="#ff7f7f7f"
             android:textSize="12sp"
-            tools:text="07 28 82 37 49"/>
+            tools:text="07 28 82 37 49" />
     </LinearLayout>
 </LinearLayout>
