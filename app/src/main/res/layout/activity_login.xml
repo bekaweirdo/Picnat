@@ -14,7 +14,7 @@
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:src="@drawable/ic_picnat_logo"
-        app:layout_constraintBottom_toTopOf="@+id/tvemail"
+        app:layout_constraintBottom_toTopOf="@+id/loginEmailEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,10 +24,10 @@
         android:id="@+id/groupLoggedIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="tvemail,tvpassword" />
+        app:constraint_referenced_ids="loginEmailEditText,loginPasswordEditText" />
 
     <EditText
-        android:id="@+id/tvemail"
+        android:id="@+id/loginEmailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -42,13 +42,13 @@
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorHint"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/tvpassword"
+        app:layout_constraintBottom_toTopOf="@+id/loginPasswordEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
     <EditText
-        android:id="@+id/tvpassword"
+        android:id="@+id/loginPasswordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -63,12 +63,12 @@
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorHint"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/btlogin"
+        app:layout_constraintBottom_toTopOf="@+id/loginButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btlogin"
+        android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -86,7 +86,7 @@
         android:id="@+id/signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btlogin"
+        android:layout_below="@id/loginButton"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"

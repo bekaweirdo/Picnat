@@ -10,7 +10,7 @@ class UserRepository(private val firebase: FirebaseDataSource) {
 
     suspend fun login(email: String, password: String) = firebase.login(email, password)
 
-    fun register(email: String, password: String) = firebase.register(email, password)
+    suspend fun register(email: String, password: String) = firebase.register(email, password)
 
     fun currentUser(): LiveData<FirebaseUser> {
         firebase.currentUser()

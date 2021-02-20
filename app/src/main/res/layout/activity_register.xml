@@ -46,7 +46,7 @@
 
 
                 <EditText
-                    android:id="@+id/tvemail"
+                    android:id="@+id/loginEmailEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -73,7 +73,7 @@
 
 
                 <EditText
-                    android:id="@+id/tvpassword"
+                    android:id="@+id/loginPasswordEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"

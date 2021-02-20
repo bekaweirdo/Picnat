@@ -10,33 +10,24 @@ import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class AuthViewModel (private val repository: UserRepository): ViewModel() {
-    var email: String? = null
-    var password: String? = null
-    //var authListener: AuthInterface? = null
+class AuthViewModel(private val repository: UserRepository) : ViewModel() {
 
-    fun login(){
-
-        if(email.isNullOrEmpty() || email.isNullOrEmpty()){
-            //authListener?.onFailure("Invalid email or password")
-            return
-        }
-
+    fun login(email : String, password : String) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.login(email!!,password!!).go(
-                success = {},
-                failure = {}
+            repository.login(email, password).go(
+                success = {
+                    print(it)
+                },
+                failure = {
+                    print(it)
+                }
             )
         }
     }
 
-    fun singup(){
-        if(email.isNullOrEmpty() || password.isNullOrEmpty()){
-            //authListener?.onFailure("Please input all values")
-            return
-        }
+    fun signUp(email: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.register(email!!,password!!).go(
+            repository.register(email, password).go(
                 success = {},
                 failure = {}
             )
@@ -56,10 +47,11 @@ class AuthViewModel (private val repository: UserRepository): ViewModel() {
 //        }
 //    }
 
-    fun getCurrentUser(): LiveData<FirebaseUser>{
+    fun getCurrentUser(): LiveData<FirebaseUser> {
         return repository.currentUser()
     }
-    fun logout(){
+
+    fun logout() {
         repository.logout()
     }
 }
