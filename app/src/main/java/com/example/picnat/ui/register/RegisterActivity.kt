@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.PicnatApplication
 import com.example.picnat.R
 import com.example.picnat.databinding.ActivityRegisterBinding
-import com.example.picnat.repository.AuthInterface
 import com.example.picnat.ui.auth.AuthViewModel
 import com.example.picnat.ui.auth.AuthViewModelFactory
 import com.example.picnat.MainActivity

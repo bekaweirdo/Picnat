@@ -8,7 +8,7 @@ import com.google.firebase.auth.FirebaseUser
 
 class UserRepository(private val firebase: FirebaseDataSource) {
 
-    fun login(email: String, password: String) = firebase.login(email, password)
+    suspend fun login(email: String, password: String) = firebase.login(email, password)
 
     fun register(email: String, password: String) = firebase.register(email, password)
 
