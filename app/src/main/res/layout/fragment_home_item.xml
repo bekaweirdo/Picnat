@@ -18,10 +18,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:text="USER NAME"
-        app:layout_constraintLeft_toRightOf="@+id/userProfile"
-        android:textStyle="bold"
         android:layout_marginTop="10dp"
+        android:text="USER NAME"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/userProfile"
         app:layout_constraintTop_toTopOf="@+id/userProfile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
