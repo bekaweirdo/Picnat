@@ -1,14 +1,15 @@
 package com.example.picnat.ui.login
 
 import android.os.Bundle
+import android.view.View.VISIBLE
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.example.PicnatApplication
 import com.example.picnat.R
-import com.example.picnat.databinding.ActivityLoginBinding
 import com.example.picnat.ui.auth.AuthViewModel
 import com.example.picnat.ui.auth.AuthViewModelFactory
+import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity() {
@@ -22,12 +23,9 @@ class LoginActivity : AppCompatActivity() {
 
         (application as PicnatApplication).appComponent.inject(this)
 
-        val binding: ActivityLoginBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_login)
+        setContentView(R.layout.activity_login)
 
         viewModel = ViewModelProviders.of(this, viewModelFactory)[AuthViewModel::class.java]
-
-        binding.viewmodel = viewModel
     }
 
 //    override fun onStarted() {
