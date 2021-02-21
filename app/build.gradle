@@ -29,6 +29,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Libraries.koinLib
     implementation Libraries.koinViewModelLib
+    implementation project(":feature-auth")
 }
 
 repositories {

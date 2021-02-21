@@ -6,9 +6,8 @@ import com.picnat.core.network.extension.go
 import com.picnat.feature_auth.network.repository.AuthRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-class LogInViewModel @Inject constructor(private val authRepository: AuthRepository) : ViewModel() {
+class LogInViewModel (private val authRepository: AuthRepository) : ViewModel() {
     fun login(email : String, password : String) {
         viewModelScope.launch(Dispatchers.IO) {
             authRepository.login(email, password).go(

@@ -6,13 +6,14 @@ import android.widget.EditText
 import android.widget.Toast
 import com.picnat.core.base.BaseFragment
 import com.picnat.feature_auth.R
+import org.koin.android.ext.android.inject
 
 class LogInFragment : BaseFragment<LogInViewModel>() {
 
     override val getLayout: Int
         get() = R.layout.log_in_fragment
 
-    override var viewModelToken: Class<LogInViewModel>? = LogInViewModel::class.java
+    override val viewModel: LogInViewModel by inject()
 
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
