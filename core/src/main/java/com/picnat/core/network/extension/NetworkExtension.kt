@@ -1,4 +1,6 @@
-package com.example.picnat.data
+package com.picnat.app.network.extension
+
+import com.picnat.core.network.ResponseState
 
 fun <T> ResponseState<T>.go(
     loading: (() -> Unit)? = null,

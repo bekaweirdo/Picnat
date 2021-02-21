@@ -1,15 +1,14 @@
-package com.example.picnat.data.datasource
+package com.picnat.feature_auth.network.data
 
 import androidx.lifecycle.MutableLiveData
-import com.example.picnat.data.ResponseState.Companion.failed
-import com.example.picnat.data.ResponseState.Companion.success
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.picnat.core.network.ResponseState
+import com.picnat.core.network.ResponseState.Companion.failed
+import com.picnat.core.network.ResponseState.Companion.success
 import kotlinx.coroutines.tasks.await
 
-class FirebaseDataSource {
-
-    val currentUser: MutableLiveData<FirebaseUser> = MutableLiveData()
+class AuthDataSource {
 
     private val firebaseAuth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
@@ -36,9 +35,4 @@ class FirebaseDataSource {
             failed(e.message.toString())
         }
     }
-
-    fun logout() = firebaseAuth.signOut()
-
-    fun currentUser() = currentUser.postValue(firebaseAuth.currentUser)
-
 }
