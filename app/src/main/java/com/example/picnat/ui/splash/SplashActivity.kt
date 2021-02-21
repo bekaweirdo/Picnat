@@ -2,11 +2,9 @@ package com.example.picnat.ui.splash
 
 import android.content.Intent
 import android.graphics.drawable.AnimatedVectorDrawable
-import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.picnat.R
 import com.example.picnat.data.model.PagerM
