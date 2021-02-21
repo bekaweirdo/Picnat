@@ -1,4 +1,4 @@
-package com.example.picnat.data
+package com.picnat.core.network
 
 sealed class ResponseState<T> {
     class Loading<T> : ResponseState<T>()
