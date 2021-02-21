@@ -1,7 +1,7 @@
 package com.example
 
 import android.app.Application
-import com.example.picnat.di.module.roomPicnatApp
+import com.example.picnat.koin.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import com.picnat.feature_auth.AuthFeature
@@ -14,7 +14,7 @@ class PicnatApplication : Application() {
 
         startKoin {
             androidContext(this@PicnatApplication)
-            modules(roomPicnatApp)
+            modules(appModule)
         }
         AuthFeature.init()
     }

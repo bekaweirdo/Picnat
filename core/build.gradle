@@ -1,13 +1,6 @@
 import com.picnat.buildsrc.Libraries
-import com.picnat.buildsrc.SupportLibraries
-import com.picnat.buildsrc.TestLibraries
 
 dependencies {
-    implementation Libraries.kotlinLib
     implementation Libraries.coroutinesLib
     implementation Libraries.coroutinesPlayServicesLib
-    implementation SupportLibraries.appCompatLib
-
-    testImplementation TestLibraries.junit
-    androidTestImplementation TestLibraries.junitTest
 }
