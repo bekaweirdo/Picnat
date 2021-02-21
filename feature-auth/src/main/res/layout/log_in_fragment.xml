@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#22">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="@dimen/dimen_p_100"
+        android:layout_height="@dimen/dimen_p_50"
+        android:src="#000"
+        app:layout_constraintBottom_toTopOf="@+id/loginEmailEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupLoggedIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="loginEmailEditText,loginPasswordEditText" />
+
+    <EditText
+        android:id="@+id/loginEmailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_p_20"
+        android:layout_marginBottom="@dimen/dimen_p_20"
+        android:hint="@string/auth_email"
+        android:imeOptions="actionNext"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorHint"
+        android:textSize="@dimen/dimen_sp_14"
+        app:layout_constraintBottom_toTopOf="@+id/loginPasswordEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <EditText
+        android:id="@+id/loginPasswordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dimen_p_20"
+        android:layout_marginBottom="@dimen/dimen_p_20"
+        android:backgroundTint="@color/colorWhite"
+        android:hint="@string/auth_password"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorHint"
+        android:textSize="@dimen/dimen_sp_14"
+        app:layout_constraintBottom_toTopOf="@+id/loginButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/dimen_p_50"
+        android:layout_marginHorizontal="@dimen/dimen_p_20"
+        android:text="@string/auth_login"
+        android:textAllCaps="false"
+        android:textSize="@dimen/dimen_sp_12"
+        app:layout_constraintBottom_toTopOf="@+id/signup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="@dimen/dimen_p_20"
+        android:layout_marginTop="@dimen/dimen_p_20"
+        android:paddingBottom="@dimen/dimen_p_8"
+        android:text="@string/auth_sign_up"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/dimen_sp_12"
+        app:layout_constraintBottom_toTopOf="@+id/labelfacebook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/labelfacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="@dimen/dimen_p_20"
+        android:layout_marginTop="@dimen/dimen_p_5"
+        android:layout_marginBottom="@dimen/dimen_p_50"
+        android:text="@string/auth_forgot_password"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/dimen_sp_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

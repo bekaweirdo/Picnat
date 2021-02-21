@@ -1,2 +1,5 @@
+include ':styles'
+include ':core'
+include ':feature-auth'
 include ':app'
 rootProject.name='Picnat'
