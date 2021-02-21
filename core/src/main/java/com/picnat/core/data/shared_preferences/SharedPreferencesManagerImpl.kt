@@ -3,7 +3,7 @@ package com.picnat.core.data.shared_preferences
 import android.content.Context
 import android.content.SharedPreferences
 
-class SharedPreferencesManagerImpl(private val context: Context) : SharedPreferencesManager {
+class SharedPreferencesManagerImpl(context: Context) : SharedPreferencesManager {
 
     companion object{
         const val PREF_NAME = "Picnat.app"

@@ -31,6 +31,7 @@ dependencies {
     implementation Libraries.koinLib
     implementation Libraries.koinViewModelLib
     implementation SupportLibraries.constraintLayoutLib
+    implementation Libraries.ciceroneLib
 
     implementation Libraries.roomLib
     implementation Libraries.roomCoroutinesLib

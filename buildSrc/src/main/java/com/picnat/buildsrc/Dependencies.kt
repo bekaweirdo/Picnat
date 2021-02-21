@@ -33,6 +33,8 @@ object Versions {
 
     const val roomDatabase = "2.2.6"
 
+    const val cicerone = "6.6"
+
     const val junit = "4.12"
     const val espresso = "3.3.0"
     const val junitTest = "1.1.2"
@@ -63,6 +65,8 @@ object Libraries{
     const val roomLib = "androidx.room:room-runtime:${Versions.roomDatabase}"
     const val roomCompiler = "androidx.room:room-compiler:${Versions.roomDatabase}"
     const val roomCoroutinesLib = "androidx.room:room-ktx:${Versions.roomDatabase}"
+
+    const val ciceroneLib = "com.github.terrakok:cicerone:${Versions.cicerone}"
 }
 
 object SupportLibraries {

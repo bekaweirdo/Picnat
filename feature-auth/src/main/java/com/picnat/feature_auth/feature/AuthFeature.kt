@@ -1,4 +1,4 @@
-package com.picnat.feature_auth
+package com.picnat.feature_auth.feature
 
 import com.google.firebase.auth.FirebaseAuth
 import com.picnat.feature_auth.network.data.AuthDataSource
