@@ -3,8 +3,6 @@ package com.example.picnat.utils
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream

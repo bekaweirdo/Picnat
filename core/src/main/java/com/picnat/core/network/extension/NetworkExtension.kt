@@ -1,4 +1,4 @@
-package com.picnat.app.network.extension
+package com.picnat.core.network.extension
 
 import com.picnat.core.network.ResponseState
 

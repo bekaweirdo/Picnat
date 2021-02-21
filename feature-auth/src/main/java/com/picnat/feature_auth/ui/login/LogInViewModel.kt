@@ -2,7 +2,7 @@ package com.picnat.feature_auth.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.picnat.app.network.extension.go
+import com.picnat.core.network.extension.go
 import com.picnat.feature_auth.network.repository.AuthRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
