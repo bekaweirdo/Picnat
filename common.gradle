@@ -1,5 +1,4 @@
-import com.picnat.buildsrc.Libraries
-import com.picnat.buildsrc.Versions
+import com.picnat.buildsrc.*
 
 if (this.name == 'app') {
     apply plugin: 'com.android.application'
@@ -13,6 +12,13 @@ apply plugin: 'kotlin-kapt'
 dependencies {
     implementation Libraries.kotlinLib
     api Libraries.coreKtxLib
+    implementation SupportLibraries.appCompatLib
+
+    implementation Libraries.koinLib
+    implementation Libraries.koinViewModelLib
+
+    testImplementation TestLibraries.junit
+    androidTestImplementation TestLibraries.junitTest
 }
 
 android {

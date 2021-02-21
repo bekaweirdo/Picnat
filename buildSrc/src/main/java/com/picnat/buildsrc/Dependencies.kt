@@ -31,6 +31,8 @@ object Versions {
     const val lifecycleCommon = "2.3.0"
     const val lifecycleLiveData = "2.3.0"
 
+    const val roomDatabase = "2.2.6"
+
     const val junit = "4.12"
     const val espresso = "3.3.0"
     const val junitTest = "1.1.2"
@@ -54,8 +56,13 @@ object Libraries{
     const val lifecycleLiveDataLib = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycleLiveData}"
     const val lifecycleExtensionsLib = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleExtensions}"
 
-    const val koinLib = "org.koin:koin-gradle-plugin:${Versions.koin}"
-    const val koinViewModelLib = "org.koin:koin-android-viewmodel:${Versions.koin}"
+    const val koinLib = "org.koin:koin-androidx-scope:${Versions.koin}"
+    const val koinViewModelLib = "org.koin:koin-androidx-viewmodel:${Versions.koin}"
+    const val koinFragmentLib = "org.koin:koin-androidx-fragment:${Versions.koin}"
+
+    const val roomLib = "androidx.room:room-runtime:${Versions.roomDatabase}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.roomDatabase}"
+    const val roomCoroutinesLib = "androidx.room:room-ktx:${Versions.roomDatabase}"
 }
 
 object SupportLibraries {
