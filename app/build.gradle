@@ -1,3 +1,4 @@
+import com.picnat.buildsrc.Libraries
 import com.picnat.buildsrc.Releases
 import com.picnat.buildsrc.Versions
 
@@ -26,6 +27,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Libraries.koinLib
+    implementation Libraries.koinViewModelLib
 }
 
 repositories {

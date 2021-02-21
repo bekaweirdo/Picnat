@@ -25,6 +25,7 @@ object Versions {
 
     const val coroutines = "1.4.1"
     const val coroutinesPlayServices = "1.1.1"
+    const val koin = "2.2.2"
 
     const val lifecycleExtensions = "2.2.0"
     const val lifecycleCommon = "2.3.0"
@@ -52,6 +53,9 @@ object Libraries{
     const val lifecycleLib = "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycleCommon}"
     const val lifecycleLiveDataLib = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycleLiveData}"
     const val lifecycleExtensionsLib = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleExtensions}"
+
+    const val koinLib = "org.koin:koin-gradle-plugin:${Versions.koin}"
+    const val koinViewModelLib = "org.koin:koin-android-viewmodel:${Versions.koin}"
 }
 
 object SupportLibraries {

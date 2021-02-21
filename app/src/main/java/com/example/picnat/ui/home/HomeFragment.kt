@@ -16,19 +16,21 @@ import com.example.picnat.R
 import com.example.picnat.ui.auth.AuthViewModel
 import com.example.picnat.ui.auth.AuthViewModelFactory
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.android.synthetic.main.fragment_home.*
-import javax.inject.Inject
+import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 
 class HomeFragment : Fragment() {
     private var adapter: HomeAdapter? = null
 
-    @Inject
-    lateinit var viewModelFactory: AuthViewModelFactory
+    private val viewAuthViewModel by viewModel<AuthViewModel>()
 
-    private val viewModel: AuthViewModel by lazy {
-        ViewModelProviders.of(this, viewModelFactory)[AuthViewModel::class.java]
-    }
+//    @Inject
+//    lateinit var viewModelFactory: AuthViewModelFactory
+//
+//    private val viewModel: AuthViewModel by lazy {
+//        ViewModelProviders.of(this, viewModelFactory)[AuthViewModel::class.java]
+//    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,7 +52,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupView(){
-        viewModel.getCurrentUser().observe(this,Observer<FirebaseUser>{
+        viewAuthViewModel.getCurrentUser().observe(this,Observer<FirebaseUser>{
             adapter?.updateData(it)
 
         })
