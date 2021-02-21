@@ -1,11 +1,11 @@
 package com.picnat.feature_auth.network.repository
 
-import com.picnat.feature_auth.network.data.AuthDataSource
-import javax.inject.Inject
+import com.google.firebase.auth.FirebaseUser
+import com.picnat.core.network.ResponseState
 
-class AuthRepository @Inject constructor(private val auth: AuthDataSource) {
+interface AuthRepository{
 
-    suspend fun login(email: String, password: String) = auth.login(email, password)
+    suspend fun login(email: String, password: String) : ResponseState<FirebaseUser?>
 
-    suspend fun register(email: String, password: String) = auth.register(email, password)
+    suspend fun register(email: String, password: String) : ResponseState<FirebaseUser?>
 }

@@ -11,18 +11,11 @@ import androidx.lifecycle.ViewModelProvider
 
 abstract class BaseFragment<VM : ViewModel?> : Fragment() {
 
-    protected var viewModel : VM? = null
-    protected open var viewModelToken: Class<VM>? = null
+    protected abstract val viewModel : VM?
 
     abstract val getLayout: Int
 
     abstract fun initViews(view : View)
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        (application as PicnatApplication).appComponent.inject(this)
-        viewModel = providerViewModel()
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,8 +39,4 @@ abstract class BaseFragment<VM : ViewModel?> : Fragment() {
     protected fun <T> LiveData<T>.observe(onChanged: (T) -> Unit) {
         observe(viewLifecycleOwner, onChanged)
     }
-
-    private fun providerViewModel() =
-        if (viewModelToken != null) ViewModelProvider(this)[viewModelToken!!] else null
-
 }
