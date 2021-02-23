@@ -1,4 +1,4 @@
-package com.example.picnat.data.database
+package com.picnat.app.data.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

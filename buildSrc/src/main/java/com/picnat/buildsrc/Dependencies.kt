@@ -49,7 +49,7 @@ object Libraries{
     const val firebaseAuthLib = "com.google.firebase:firebase-auth:${Versions.firebaseAuth}"
     const val firebaseStorageLib = "com.google.firebase:firebase-storage:${Versions.firebaseStorage}"
     const val firebaseFirestoreLib = "com.google.firebase:firebase-firestore-ktx"
-    const val firebaseBomLib = "com.google.firebase:firebase-bom:26.5.0:${Versions.firebaseBom}"
+    const val firebaseBomLib = "com.google.firebase:firebase-bom:${Versions.firebaseBom}"
 
     const val coroutinesLib = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val coroutinesPlayServicesLib = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.coroutinesPlayServices}"

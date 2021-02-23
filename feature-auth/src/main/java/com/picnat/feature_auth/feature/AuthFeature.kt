@@ -13,7 +13,7 @@ import org.koin.dsl.module
 object AuthFeature {
 
     private val viewModelModule: Module = module {
-        viewModel { LogInViewModel(authRepository = get()) }
+        viewModel { LogInViewModel(authRepository = AuthRepositoryImpl(get())) }
         viewModel { SignUpViewModel(authRepository = get()) }
     }
 
@@ -27,9 +27,9 @@ object AuthFeature {
 
     fun init() = loadKoinModules(
         listOf(
-            viewModelModule,
+            dataSourceModule,
             repositoryModule,
-            dataSourceModule
+            viewModelModule
         )
     )
 }

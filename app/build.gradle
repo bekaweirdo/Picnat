@@ -5,6 +5,7 @@ import com.picnat.buildsrc.Versions
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion Versions.compileSdk
@@ -32,6 +33,8 @@ dependencies {
     implementation Libraries.koinViewModelLib
     implementation SupportLibraries.constraintLayoutLib
     implementation Libraries.ciceroneLib
+    implementation Libraries.firebaseBomLib
+    implementation Libraries.firebaseAuthLib
 
     implementation Libraries.roomLib
     implementation Libraries.roomCoroutinesLib

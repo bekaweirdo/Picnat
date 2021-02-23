@@ -1,4 +1,4 @@
-package com.example.picnat
+package com.picnat.app
 
 import org.junit.Test
 
