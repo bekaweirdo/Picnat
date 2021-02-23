@@ -14,6 +14,7 @@ val roomDataSourceModule = module {
         Room.databaseBuilder(androidApplication(), PicnatDatabase::class.java, "Picnat")
             .build()
     }
+    //    single { get<PicnatDatabase>().picnatDAO }
 }
 
 val navigationModule = module {
