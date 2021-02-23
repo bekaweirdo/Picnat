@@ -8,6 +8,7 @@ import com.picnat.core.base.BaseFragment
 import com.picnat.feature_auth.R
 import org.koin.android.ext.android.inject
 
+
 class LogInFragment : BaseFragment<LogInViewModel>() {
 
     override val getLayout: Int

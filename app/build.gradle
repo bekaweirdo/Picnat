@@ -39,6 +39,7 @@ dependencies {
     implementation Libraries.roomLib
     implementation Libraries.roomCoroutinesLib
     kapt Libraries.roomCompiler
+    implementation project(":core")
     implementation project(":feature-auth")
 }
 

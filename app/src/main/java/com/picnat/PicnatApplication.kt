@@ -1,8 +1,8 @@
 package com.picnat
 
 import android.app.Application
-import com.picnat.app.koin.navigationModule
-import com.picnat.app.koin.roomDataSourceModule
+import com.picnat.app.di.navigationModule
+import com.picnat.app.di.roomDataSourceModule
 import com.google.firebase.FirebaseApp
 import com.picnat.feature_auth.feature.AuthFeature
 import org.koin.android.ext.koin.androidContext
@@ -18,6 +18,5 @@ class PicnatApplication : Application() {
             androidContext(this@PicnatApplication)
             modules(roomDataSourceModule, navigationModule)
         }
-        AuthFeature.init()
     }
 }

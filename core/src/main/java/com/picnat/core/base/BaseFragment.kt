@@ -7,15 +7,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import com.picnat.core.navigation.GlobalNavigatorHandler
+import org.koin.android.ext.android.inject
 
 abstract class BaseFragment<VM : ViewModel?> : Fragment() {
 
-    protected abstract val viewModel : VM?
+    protected val globalNavigator : GlobalNavigatorHandler by inject()
+
+    protected abstract val viewModel: VM?
 
     abstract val getLayout: Int
 
-    abstract fun initViews(view : View)
+    abstract fun initViews(view: View)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
