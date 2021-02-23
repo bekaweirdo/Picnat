@@ -1,21 +1,22 @@
-package com.example
+package com.picnat
 
 import android.app.Application
-import com.example.picnat.koin.appModule
+import com.picnat.app.di.navigationModule
+import com.picnat.app.di.roomDataSourceModule
+import com.google.firebase.FirebaseApp
+import com.picnat.feature_auth.feature.AuthFeature
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
-import com.picnat.feature_auth.AuthFeature
 
 
 class PicnatApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
+        FirebaseApp.initializeApp(this)
         startKoin {
             androidContext(this@PicnatApplication)
-            modules(appModule)
+            modules(roomDataSourceModule, navigationModule)
         }
-        AuthFeature.init()
     }
 }

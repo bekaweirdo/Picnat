@@ -33,6 +33,8 @@ object Versions {
 
     const val roomDatabase = "2.2.6"
 
+    const val cicerone = "6.6"
+
     const val junit = "4.12"
     const val espresso = "3.3.0"
     const val junitTest = "1.1.2"
@@ -47,7 +49,7 @@ object Libraries{
     const val firebaseAuthLib = "com.google.firebase:firebase-auth:${Versions.firebaseAuth}"
     const val firebaseStorageLib = "com.google.firebase:firebase-storage:${Versions.firebaseStorage}"
     const val firebaseFirestoreLib = "com.google.firebase:firebase-firestore-ktx"
-    const val firebaseBomLib = "com.google.firebase:firebase-bom:26.5.0:${Versions.firebaseBom}"
+    const val firebaseBomLib = "com.google.firebase:firebase-bom:${Versions.firebaseBom}"
 
     const val coroutinesLib = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val coroutinesPlayServicesLib = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:${Versions.coroutinesPlayServices}"
@@ -63,6 +65,8 @@ object Libraries{
     const val roomLib = "androidx.room:room-runtime:${Versions.roomDatabase}"
     const val roomCompiler = "androidx.room:room-compiler:${Versions.roomDatabase}"
     const val roomCoroutinesLib = "androidx.room:room-ktx:${Versions.roomDatabase}"
+
+    const val ciceroneLib = "com.github.terrakok:cicerone:${Versions.cicerone}"
 }
 
 object SupportLibraries {

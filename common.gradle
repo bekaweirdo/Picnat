@@ -17,6 +17,8 @@ dependencies {
     implementation Libraries.koinLib
     implementation Libraries.koinViewModelLib
 
+    implementation Libraries.ciceroneLib
+
     testImplementation TestLibraries.junit
     androidTestImplementation TestLibraries.junitTest
 }

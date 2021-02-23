@@ -1,4 +1,4 @@
-package com.example.picnat.data.database
+package com.picnat.app.data.database
 
 import android.content.Context
 import androidx.room.Database
