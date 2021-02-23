@@ -15,9 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/map_key" />
         <activity android:name="com.picnat.app.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
