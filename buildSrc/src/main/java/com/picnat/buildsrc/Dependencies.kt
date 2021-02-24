@@ -15,7 +15,7 @@ object Versions {
     const val ktx = "1.3.2"
 
     const val appCompat = "1.2.0"
-    const val material = "1.2.1"
+    const val material = "1.3.0"
     const val legacySupport = "1.0.0"
     const val constraintLayout = "2.0.4"
 

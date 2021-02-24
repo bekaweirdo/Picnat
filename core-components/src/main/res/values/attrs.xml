@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EditTextWithTitle">
+        <attr name="EditTextWithTitle_Hint" format="string"/>
+        <attr name="EditTextWithTitle_Text" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="RoundedButton">
+        <attr name="RoundedButton_Color" format="color"/>
+        <attr name="RoundedButton_StrokeColor" format="color"/>
+        <attr name="RoundedButton_Text" format="string"/>
+        <attr name="RoundedButton_TextSize" format="integer"/>
+        <attr name="RoundedButton_TextColor" format="color"/>
+    </declare-styleable>
+</resources>
