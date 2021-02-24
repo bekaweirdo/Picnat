@@ -33,13 +33,14 @@ dependencies {
     implementation Libraries.koinViewModelLib
     implementation SupportLibraries.constraintLayoutLib
     implementation Libraries.ciceroneLib
-    implementation Libraries.firebaseBomLib
+    implementation platform(Libraries.firebaseBomLib)
     implementation Libraries.firebaseAuthLib
 
     implementation Libraries.roomLib
     implementation Libraries.roomCoroutinesLib
     kapt Libraries.roomCompiler
     implementation project(":core")
+    implementation project(":feature-splash")
     implementation project(":feature-auth")
 }
 

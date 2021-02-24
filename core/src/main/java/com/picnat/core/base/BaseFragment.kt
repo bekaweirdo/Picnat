@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.picnat.core.navigation.GlobalNavigatorHandler
+import com.picnat.core.navigation.impl.GlobalNavigatorImpl
 import org.koin.android.ext.android.inject
 
 abstract class BaseFragment<VM : ViewModel?> : Fragment() {
 
-    protected val globalNavigator : GlobalNavigatorHandler by inject()
+    protected val globalNavigator : GlobalNavigatorImpl by inject()
 
     protected abstract val viewModel: VM?
 

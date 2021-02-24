@@ -1,0 +1,12 @@
+apply plugin: 'kotlin-android'
+
+import com.picnat.buildsrc.Libraries
+import com.picnat.buildsrc.SupportLibraries
+
+dependencies {
+    implementation project(':core')
+    implementation project(':styles')
+    implementation SupportLibraries.constraintLayoutLib
+    implementation Libraries.firebaseAuthLib
+    implementation Libraries.firebaseFirestoreLib
+}

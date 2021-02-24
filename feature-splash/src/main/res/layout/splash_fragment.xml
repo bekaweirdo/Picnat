@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.SplashFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewHome"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/splashLogo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/fragment_home_item" />
+        android:src="@drawable/ic_picnat_logo"
+        android:layout_gravity="center"/>
 
 </FrameLayout>

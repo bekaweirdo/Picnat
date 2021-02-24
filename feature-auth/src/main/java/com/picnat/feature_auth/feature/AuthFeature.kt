@@ -3,7 +3,7 @@ package com.picnat.feature_auth.feature
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import com.google.firebase.auth.FirebaseAuth
 import com.picnat.core.base.BaseFeature
-import com.picnat.core.navigation.LocalNavigatorHandlerImpl
+import com.picnat.core.navigation.impl.LocalNavigatorImpl
 import com.picnat.feature_auth.network.data.AuthDataSource
 import com.picnat.feature_auth.network.repository.AuthRepositoryImpl
 import com.picnat.feature_auth.ui.login.LogInFragment
@@ -11,13 +11,9 @@ import com.picnat.feature_auth.ui.login.LogInViewModel
 import com.picnat.feature_auth.ui.sign_up.SignUpFragment
 import com.picnat.feature_auth.ui.sign_up.SignUpViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
-import org.koin.core.component.KoinApiExtension
-import org.koin.core.context.loadKoinModules
-import org.koin.core.context.unloadKoinModules
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
-@KoinApiExtension
 object AuthFeature : BaseFeature {
 
     private val viewModelModule: Module = module {
@@ -37,21 +33,22 @@ object AuthFeature : BaseFeature {
 //        scope<AuthFeatureFragment> {
 //            scoped { LocalNavigatorHandlerImpl(get()) }
 //        }
-        single { LocalNavigatorHandlerImpl(get()) }
+        single { LocalNavigatorImpl(get()) }
     }
 
-    private val modulesList = listOf(
+//    override val featureFragment: KClass<out BaseFeatureFragment<*>>
+//        get() = AuthFeatureFragment::class
+
+    override val modulesList = listOf(
         dataSourceModule,
         repositoryModule,
         viewModelModule,
         localNavigatorModule
     )
-//    override val featureFragment: KClass<out BaseFeatureFragment<*>>
-//        get() = AuthFeatureFragment::class
 
-    override fun loadModules() = loadKoinModules(modulesList)
-
-    override fun unloadModules() = unloadKoinModules(modulesList)
+    override fun unloadModules() {
+        super.unloadModules()
+    }
 
     object AuthScreens{
         fun authLogIn() = FragmentScreen { LogInFragment() }
