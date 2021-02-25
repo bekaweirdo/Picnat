@@ -1,115 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/ivLogo"
+        android:id="@+id/logInLogo"
         android:layout_width="@dimen/dimen_p_100"
         android:layout_height="@dimen/dimen_p_50"
-        android:src="#000"
-        app:layout_constraintBottom_toTopOf="@+id/loginEmailEditText"
+        android:layout_marginTop="@dimen/dimen_p_100"
+        android:src="@drawable/ic_picnat_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/groupLoggedIn"
+    <com.picnat.core_components.view.edit_text.EditTextWithTitle
+        android:id="@+id/authLoginEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="loginEmailEditText,loginPasswordEditText" />
+        android:layout_marginTop="@dimen/dimen_p_150"
+        app:EditTextWithTitle_Hint="@string/auth_email"
+        app:layout_constraintTop_toBottomOf="@id/logInLogo" />
 
-    <EditText
-        android:id="@+id/loginEmailEditText"
+    <com.picnat.core_components.view.edit_text.EditTextWithTitle
+        android:id="@+id/authLoginPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dimen_p_20"
-        android:layout_marginBottom="@dimen/dimen_p_20"
-        android:hint="@string/auth_email"
-        android:imeOptions="actionNext"
-        android:inputType="textEmailAddress"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorHint"
-        android:textSize="@dimen/dimen_sp_14"
-        app:layout_constraintBottom_toTopOf="@+id/loginPasswordEditText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="@dimen/dimen_p_30"
+        app:EditTextWithTitle_Hint="@string/auth_password"
+        app:layout_constraintTop_toBottomOf="@id/authLoginEmail" />
 
-
-    <EditText
-        android:id="@+id/loginPasswordEditText"
-        android:layout_width="match_parent"
+    <com.picnat.core_components.view.button.RoundedButton
+        android:id="@+id/authLoginButton"
+        android:layout_width="@dimen/dimen_p_150"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dimen_p_20"
-        android:layout_marginBottom="@dimen/dimen_p_20"
-        android:backgroundTint="@color/colorWhite"
-        android:hint="@string/auth_password"
-        android:imeOptions="actionDone"
-        android:inputType="textPassword"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorHint"
-        android:textSize="@dimen/dimen_sp_14"
-        app:layout_constraintBottom_toTopOf="@+id/loginButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/dimen_p_50"
-        android:layout_marginHorizontal="@dimen/dimen_p_20"
-        android:text="@string/auth_login"
-        android:textAllCaps="false"
-        android:textSize="@dimen/dimen_sp_12"
-        app:layout_constraintBottom_toTopOf="@+id/signup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/loginButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginHorizontal="@dimen/dimen_p_20"
-        android:layout_marginTop="@dimen/dimen_p_20"
-        android:paddingBottom="@dimen/dimen_p_8"
-        android:text="@string/auth_sign_up"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/dimen_sp_12"
-        app:layout_constraintBottom_toTopOf="@+id/labelfacebook"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <TextView
-        android:id="@+id/labelfacebook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/signup"
-        android:layout_centerHorizontal="true"
-        android:layout_marginHorizontal="@dimen/dimen_p_20"
-        android:layout_marginTop="@dimen/dimen_p_5"
-        android:layout_marginBottom="@dimen/dimen_p_50"
-        android:text="@string/auth_forgot_password"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/dimen_sp_12"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-
-    <ProgressBar
-        android:id="@+id/progressbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/dimen_p_50"
+        app:RoundedButton_Color="@color/colorBlack"
+        app:RoundedButton_Text="@string/auth_login"
+        app:RoundedButton_TextColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/authLoginPassword" />
+
+    <TextView
+        android:id="@+id/authLogInSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_p_50"
+        android:layout_marginBottom="@dimen/dimen_p_20"
+        android:gravity="center"
+        android:text="@string/if_you_dont_have_an_account_sign_up"
+        android:textSize="@dimen/dimen_sp_16"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

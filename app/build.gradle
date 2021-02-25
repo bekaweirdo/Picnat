@@ -29,16 +29,20 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation SupportLibraries.constraintLayoutLib
+
     implementation Libraries.koinLib
     implementation Libraries.koinViewModelLib
-    implementation SupportLibraries.constraintLayoutLib
+
     implementation Libraries.ciceroneLib
+
     implementation platform(Libraries.firebaseBomLib)
     implementation Libraries.firebaseAuthLib
 
     implementation Libraries.roomLib
     implementation Libraries.roomCoroutinesLib
     kapt Libraries.roomCompiler
+
     implementation project(":core")
     implementation project(":feature-splash")
     implementation project(":feature-auth")

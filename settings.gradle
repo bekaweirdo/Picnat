@@ -1,3 +1,4 @@
+include ':core-components'
 include ':feature-splash'
 include ':styles'
 include ':core'
