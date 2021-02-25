@@ -3,4 +3,7 @@ import com.picnat.buildsrc.Libraries
 dependencies {
     implementation Libraries.coroutinesLib
     implementation Libraries.coroutinesPlayServicesLib
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+    implementation platform(Libraries.firebaseBomLib)
+    implementation Libraries.firebaseFirestoreLib
 }

@@ -9,6 +9,12 @@ if (this.name == 'app') {
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
+android{
+    kotlinOptions {
+        freeCompilerArgs += "-Xopt-in=org.koin.core.component.KoinApiExtension"
+    }
+}
+
 dependencies {
     implementation Libraries.kotlinLib
     api Libraries.coreKtxLib
