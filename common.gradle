@@ -8,6 +8,7 @@ if (this.name == 'app') {
 
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
 
 android{
     kotlinOptions {

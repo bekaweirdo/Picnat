@@ -1,6 +1,7 @@
 package com.picnat.core_components.view.edit_text
 
 import android.content.Context
+import android.text.InputType
 import android.util.AttributeSet
 import android.widget.EditText
 import android.widget.FrameLayout
@@ -13,6 +14,7 @@ class EditTextWithTitle @JvmOverloads constructor(
 
     private lateinit var hint: String
     lateinit var text: String
+    private var inputType : Int = InputType.TYPE_CLASS_TEXT
     private val editText: EditText
 
     init {
@@ -24,6 +26,7 @@ class EditTextWithTitle @JvmOverloads constructor(
             editText.hint = hint
         else
             editText.setText(text)
+        editText.inputType = inputType
     }
 
     private fun getAttributes(attrs: AttributeSet?) {
@@ -31,6 +34,7 @@ class EditTextWithTitle @JvmOverloads constructor(
         try {
             hint = attributes.getString(R.styleable.EditTextWithTitle_EditTextWithTitle_Hint) ?: ""
             text = attributes.getString(R.styleable.EditTextWithTitle_EditTextWithTitle_Text) ?: ""
+            inputType = attributes.getInt(R.styleable.EditTextWithTitle_EditTextWithTitle_InputType, InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS)
         } finally {
             attributes.recycle()
         }

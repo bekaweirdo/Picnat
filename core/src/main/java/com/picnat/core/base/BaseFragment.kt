@@ -4,13 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.picnat.core.navigation.impl.GlobalNavigatorImpl
+import com.picnat.core.navigation.impl.LocalNavigatorImpl
 import org.koin.android.ext.android.inject
 
-abstract class BaseFragment<VM : ViewModel?> : Fragment() {
+abstract class BaseFragment<VM : BaseFeatureVM?> : Fragment() {
+
+    protected val localNavigator : LocalNavigatorImpl by inject()
 
     protected val globalNavigator : GlobalNavigatorImpl by inject()
 
@@ -37,7 +41,11 @@ abstract class BaseFragment<VM : ViewModel?> : Fragment() {
     }
 
 
-    open fun onBindViewModel(viewModel: VM) {}
+    open fun onBindViewModel(viewModel: VM) {
+        viewModel?.errorMessage?.observe{
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+        }
+    }
 
     protected fun <T> LiveData<T>.observe(onChanged: (T) -> Unit) {
         observe(viewLifecycleOwner, onChanged)

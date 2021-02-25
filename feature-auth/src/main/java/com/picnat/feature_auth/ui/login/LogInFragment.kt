@@ -1,11 +1,12 @@
 package com.picnat.feature_auth.ui.login
 
 import android.view.View
-import android.widget.Button
-import android.widget.Toast
+import android.widget.TextView
 import com.picnat.core.base.BaseFragment
+import com.picnat.core_components.view.button.RoundedButton
 import com.picnat.core_components.view.edit_text.EditTextWithTitle
 import com.picnat.feature_auth.R
+import com.picnat.feature_auth.feature.AuthFeature
 import org.koin.android.ext.android.inject
 
 
@@ -18,12 +19,18 @@ class LogInFragment : BaseFragment<LogInViewModel>() {
 
     private lateinit var emailEditText: EditTextWithTitle
     private lateinit var passwordEditText: EditTextWithTitle
-    private lateinit var loginButton : Button
+    private lateinit var loginButton : RoundedButton
+    private lateinit var signUpText : TextView
 
     override fun initViews(view: View) {
         emailEditText = view.findViewById(R.id.authLoginEmail)
         passwordEditText = view.findViewById(R.id.authLoginPassword)
         loginButton = view.findViewById(R.id.authLoginButton)
+        signUpText = view.findViewById(R.id.authLogInSignUp)
+
+        signUpText.setOnClickListener {
+            localNavigator.navigateTo(AuthFeature.AuthScreens.authSignUp())
+        }
     }
 
     override fun onBindViewModel(viewModel: LogInViewModel) {
@@ -31,11 +38,7 @@ class LogInFragment : BaseFragment<LogInViewModel>() {
         loginButton.setOnClickListener {
             val email = emailEditText.getInput()
             val password = passwordEditText.getInput()
-            if (email.isBlank() || password.isBlank())
-                Toast.makeText(requireContext(), "Email or password is blank!", Toast.LENGTH_SHORT)
-                    .show()
-            else
-                viewModel.login(email, password)
+            viewModel.login(email, password)
         }
     }
 }

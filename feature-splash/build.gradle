@@ -7,6 +7,6 @@ dependencies {
     implementation project(':core')
     implementation project(':styles')
     implementation SupportLibraries.constraintLayoutLib
+    implementation platform(Libraries.firebaseBomLib)
     implementation Libraries.firebaseAuthLib
-    implementation Libraries.firebaseFirestoreLib
 }
