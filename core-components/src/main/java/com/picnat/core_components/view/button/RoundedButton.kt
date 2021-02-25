@@ -47,28 +47,28 @@ class RoundedButton @JvmOverloads constructor(
     }
 
     private fun getAttributes(attrs: AttributeSet?) {
-        val ta = context.obtainStyledAttributes(attrs, R.styleable.RoundedButton, 0, 0)
+        val attributes = context.obtainStyledAttributes(attrs, R.styleable.RoundedButton, 0, 0)
         try {
-            buttonColor = ta.getColor(
+            buttonColor = attributes.getColor(
                     R.styleable.RoundedButton_RoundedButton_Color,
                     ContextCompat.getColor(context, R.color.colorBlack)
                 )
-            buttonStrokeColor = ta.getColor(
+            buttonStrokeColor = attributes.getColor(
                 R.styleable.RoundedButton_RoundedButton_StrokeColor,
                 ContextCompat.getColor(context, R.color.colorBlack)
             )
 
-            buttonText = ta.getString(R.styleable.RoundedButton_RoundedButton_Text) ?: ""
-            buttonTextColor = ta.getColor(
+            buttonText = attributes.getString(R.styleable.RoundedButton_RoundedButton_Text) ?: ""
+            buttonTextColor = attributes.getColor(
                 R.styleable.RoundedButton_RoundedButton_TextColor,
                 ContextCompat.getColor(context, R.color.colorBlack)
             )
-            buttonTextSize = ta.getInt(
+            buttonTextSize = attributes.getInt(
                 R.styleable.RoundedButton_RoundedButton_TextSize,
                 R.dimen.dimen_sp_14
             )
         } finally {
-            ta.recycle()
+            attributes.recycle()
         }
     }
 }

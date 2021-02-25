@@ -27,12 +27,12 @@ class EditTextWithTitle @JvmOverloads constructor(
     }
 
     private fun getAttributes(attrs: AttributeSet?) {
-        val ta = context.obtainStyledAttributes(attrs, R.styleable.EditTextWithTitle, 0, 0)
+        val attributes = context.obtainStyledAttributes(attrs, R.styleable.EditTextWithTitle, 0, 0)
         try {
-            hint = ta.getString(R.styleable.EditTextWithTitle_EditTextWithTitle_Hint) ?: ""
-            text = ta.getString(R.styleable.EditTextWithTitle_EditTextWithTitle_Text) ?: ""
+            hint = attributes.getString(R.styleable.EditTextWithTitle_EditTextWithTitle_Hint) ?: ""
+            text = attributes.getString(R.styleable.EditTextWithTitle_EditTextWithTitle_Text) ?: ""
         } finally {
-            ta.recycle()
+            attributes.recycle()
         }
     }
 
