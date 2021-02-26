@@ -18,13 +18,15 @@ class LogInViewModel(
 
     fun login(email: String, password: String) {
 
-        if(email.isBlank() || password.isBlank()) {
+        if (email.isBlank() || password.isBlank()) {
             errorMessage.postValue(resourceProvider.getString(R.string.fill_all_the_fields))
             return
         }
 
         viewModelScope.launch(Dispatchers.IO) {
             authRepository.login(email, password).go(
+                loading = { showLoading() },
+                onFinished = { hideLoading() },
                 onSuccessWithData = { getUserData(it!!) },
                 onFailure = { errorMessage.postValue(resourceProvider.getString(R.string.coud_not_get_user_data)) }
             )
@@ -34,6 +36,8 @@ class LogInViewModel(
     private fun getUserData(user: FirebaseUser) {
         viewModelScope.launch(Dispatchers.IO) {
             userRepository.getData(user.uid).go(
+                loading = { showLoading() },
+                onFinished = { hideLoading() },
                 onSuccessWithData = { App.currentUser = it },
                 onFailure = { errorMessage.postValue(resourceProvider.getString(R.string.coud_not_get_user_data)) }
             )

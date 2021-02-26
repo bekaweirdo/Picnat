@@ -28,6 +28,8 @@ class SignUpInfoViewModel(
 
         viewModelScope.launch(Dispatchers.IO) {
             authRepository.signUp(email, password).go(
+                loading = { showLoading() },
+                onFinished = { hideLoading() },
                 onSuccessWithData = {
                     val user = User(
                         userId = it!!.uid,
@@ -47,6 +49,8 @@ class SignUpInfoViewModel(
     private fun writeUserData(user: User) {
         viewModelScope.launch(Dispatchers.IO) {
             userRepository.saveData(user).go(
+                loading = { showLoading() },
+                onFinished = { hideLoading() },
                 onSuccessWithData = {
                     App.currentUser = user
                     //globalNavigator.loadOnboarding()
