@@ -10,7 +10,6 @@
         android:layout_height="match_parent"
         android:id="@+id/container"/>
 
-
     <include layout="@layout/loading_layout"/>
 
 </FrameLayout>
