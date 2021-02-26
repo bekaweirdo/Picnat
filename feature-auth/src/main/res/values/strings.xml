@@ -13,4 +13,7 @@
     <string name="passwords_doesnt_match">Passwords doesn\'t match!</string>
     <string name="auth_could_not_get_user_data">Could not get user data!</string>
     <string name="auth_could_not_sign_up">Could not sign up, try again</string>
+    <string name="auth_last_name">Last name</string>
+    <string name="auth_first_name">First name</string>
+    <string name="auth_username">Username</string>
 </resources>

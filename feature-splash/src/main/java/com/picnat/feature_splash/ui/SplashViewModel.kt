@@ -23,9 +23,9 @@ class SplashViewModel(
         viewModelScope.launch(Dispatchers.IO) {
             val user = firebaseAuth.currentUser
             if (user != null) {
-                userRepository.getUser(user.uid).go(
-                    success = { data -> App.currentUser = data },
-                    failure = { globalNavigator.loadAuthFeature() }
+                userRepository.getData(user.uid).go(
+                    onSuccessWithData = { data -> App.currentUser = data },
+                    onFailure = { globalNavigator.loadAuthFeature() }
                 )
             } else {
                 delay(1000)

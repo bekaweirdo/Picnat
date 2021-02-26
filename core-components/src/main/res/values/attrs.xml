@@ -2,12 +2,15 @@
 <resources>
     <declare-styleable name="EditTextWithTitle">
         <attr name="EditTextWithTitle_Hint" format="string"/>
+        <attr name="EditTextWithTitle_HintColor" format="color"/>
         <attr name="EditTextWithTitle_Text" format="string"/>
+        <attr name="EditTextWithTitle_TextColor" format="color"/>
         <attr name="EditTextWithTitle_InputType" format="integer">
             <enum name="text" value="0x00000001"/>
             <enum name="number" value="0x00000002"/>
             <enum name="decimal" value="0x00002000"/>
             <enum name="email" value="0x00000020"/>
+            <enum name="password" value="0x00000010"/>
         </attr>
     </declare-styleable>
 

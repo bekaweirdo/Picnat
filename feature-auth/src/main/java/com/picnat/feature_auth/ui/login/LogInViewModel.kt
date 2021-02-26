@@ -17,6 +17,7 @@ class LogInViewModel(
 ) : BaseFeatureVM() {
 
     fun login(email: String, password: String) {
+
         if(email.isBlank() || password.isBlank()) {
             errorMessage.postValue(resourceProvider.getString(R.string.fill_all_the_fields))
             return
@@ -24,17 +25,17 @@ class LogInViewModel(
 
         viewModelScope.launch(Dispatchers.IO) {
             authRepository.login(email, password).go(
-                success = { getUserData(it!!) },
-                failure = { errorMessage.postValue(resourceProvider.getString(R.string.coud_not_get_user_data)) }
+                onSuccessWithData = { getUserData(it!!) },
+                onFailure = { errorMessage.postValue(resourceProvider.getString(R.string.coud_not_get_user_data)) }
             )
         }
     }
 
     private fun getUserData(user: FirebaseUser) {
         viewModelScope.launch(Dispatchers.IO) {
-            userRepository.getUser(user.uid).go(
-                success = { App.currentUser = it },
-                failure = { errorMessage.postValue(resourceProvider.getString(R.string.coud_not_get_user_data)) }
+            userRepository.getData(user.uid).go(
+                onSuccessWithData = { App.currentUser = it },
+                onFailure = { errorMessage.postValue(resourceProvider.getString(R.string.coud_not_get_user_data)) }
             )
         }
     }

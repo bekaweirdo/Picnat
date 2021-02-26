@@ -20,7 +20,7 @@ class RoundedButton @JvmOverloads constructor(
 
     private lateinit var buttonText: String
     private var buttonTextSize = R.dimen.dimen_p_14
-    private var buttonTextColor = 0
+    private var buttonTextColor = ContextCompat.getColor(context, R.color.colorBlack)
     private val roundedButtonText: TextView
 
     init {
@@ -61,11 +61,11 @@ class RoundedButton @JvmOverloads constructor(
             buttonText = attributes.getString(R.styleable.RoundedButton_RoundedButton_Text) ?: ""
             buttonTextColor = attributes.getColor(
                 R.styleable.RoundedButton_RoundedButton_TextColor,
-                ContextCompat.getColor(context, R.color.colorBlack)
+                buttonTextColor
             )
             buttonTextSize = attributes.getInt(
                 R.styleable.RoundedButton_RoundedButton_TextSize,
-                R.dimen.dimen_sp_14
+                buttonTextSize
             )
         } finally {
             attributes.recycle()

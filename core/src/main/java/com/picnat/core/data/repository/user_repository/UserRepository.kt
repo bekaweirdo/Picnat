@@ -5,6 +5,10 @@ import com.picnat.core.network.ResponseState
 
 interface UserRepository {
 
-    suspend fun getUser(userId : String) : ResponseState<User>
+    suspend fun getData(userId : String) : ResponseState<User>
 
+    suspend fun saveData(user : User): ResponseState<Nothing>
+
+    suspend fun writeData(userId: String, field : String, value : Any) : ResponseState<Nothing>
 }
+

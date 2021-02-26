@@ -13,7 +13,7 @@ class AuthDataSource(private val firebaseAuth: FirebaseAuth) {
             val data = firebaseAuth
                 .signInWithEmailAndPassword(email, password)
                 .await()
-            ResponseState.success(data.user)
+            ResponseState.successWithData(data.user)
         } catch (e: Exception) {
             ResponseState.failed(e.message.toString())
         }
@@ -24,7 +24,7 @@ class AuthDataSource(private val firebaseAuth: FirebaseAuth) {
             val data = firebaseAuth
                 .createUserWithEmailAndPassword(email, password)
                 .await()
-            ResponseState.success(data.user)
+            ResponseState.successWithData(data.user)
         } catch (e: Exception) {
             ResponseState.failed(e.message.toString())
         }
