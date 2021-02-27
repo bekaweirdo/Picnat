@@ -8,8 +8,10 @@ import com.picnat.core.network.ResponseState.Companion.failed
 import com.picnat.core.network.ResponseState.Companion.loading
 import com.picnat.core.network.ResponseState.Companion.success
 import com.picnat.core.network.ResponseState.Companion.successWithData
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.tasks.await
 
 class UserRepositoryImpl(private val database: FirebaseFirestore) : UserRepository {
@@ -26,7 +28,7 @@ class UserRepositoryImpl(private val database: FirebaseFirestore) : UserReposito
             emit(successWithData(user))
         else
             emit(failed<User>("User doesn't exists"))
-    }
+    }.flowOn(Dispatchers.IO)
 
     override suspend fun saveData(user: User): Flow<ResponseState<Nothing>> = flow {
         emit(loading())

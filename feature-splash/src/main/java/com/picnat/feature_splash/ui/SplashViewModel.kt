@@ -6,12 +6,13 @@ import com.picnat.core.App
 import com.picnat.core.base.BaseFeatureVM
 import com.picnat.core.data.repository.user_repository.UserRepositoryImpl
 import com.picnat.core.network.extension.go
+import com.picnat.feature_splash.domain.GetUserUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SplashViewModel(
-    private val userRepository: UserRepositoryImpl,
+    private val getUserUseCase: GetUserUseCase,
     private val firebaseAuth: FirebaseAuth
 ) : BaseFeatureVM() {
 
@@ -20,10 +21,10 @@ class SplashViewModel(
     }
 
     fun logIn() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             val user = firebaseAuth.currentUser
             if (user != null) {
-                userRepository.getData(user.uid).go(
+                getUserUseCase.invoke(GetUserUseCase.Params(user.uid)).go(
                     onSuccessWithData = { data -> App.currentUser = data },
                     onFailure = { globalNavigator.loadAuthFeature() }
                 )

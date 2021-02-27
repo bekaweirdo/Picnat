@@ -6,13 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.picnat.core.App
-import com.picnat.core.navigation.impl.GlobalNavigatorImpl
-import com.picnat.core.navigation.impl.LocalNavigatorImpl
+import com.picnat.core.navigation.api.GlobalNavigator
+import com.picnat.core.navigation.api.LocalNavigator
 import org.koin.android.ext.android.inject
 
 abstract class BaseFragment<VM : BaseFeatureVM?> : Fragment() {
@@ -21,9 +20,9 @@ abstract class BaseFragment<VM : BaseFeatureVM?> : Fragment() {
         const val LOADING = "LOADING"
     }
 
-    protected val localNavigator: LocalNavigatorImpl by inject()
+    protected val localNavigator: LocalNavigator by inject()
 
-    protected val globalNavigator: GlobalNavigatorImpl by inject()
+    protected val globalNavigator: GlobalNavigator by inject()
 
     protected abstract val viewModel: VM?
 

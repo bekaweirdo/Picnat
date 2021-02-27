@@ -20,8 +20,4 @@ class SplashFragment : BaseFragment<SplashViewModel>() {
             viewModel.logIn()
         }
     }
-
-    override fun onBindViewModel(viewModel: SplashViewModel) {
-        super.onBindViewModel(viewModel)
-    }
 }
