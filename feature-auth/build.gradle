@@ -5,6 +5,7 @@ import com.picnat.buildsrc.SupportLibraries
 
 dependencies {
     implementation project(':core')
+    implementation project(':core-components')
     implementation project(':styles')
     implementation SupportLibraries.constraintLayoutLib
     implementation Libraries.coroutinesPlayServicesLib

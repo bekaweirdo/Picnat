@@ -1,0 +1,6 @@
+import com.picnat.buildsrc.SupportLibraries
+
+dependencies {
+    implementation project(':styles')
+    implementation SupportLibraries.constraintLayoutLib
+}

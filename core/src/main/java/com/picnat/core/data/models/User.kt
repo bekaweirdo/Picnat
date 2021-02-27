@@ -1,3 +1,8 @@
 package com.picnat.core.data.models
 
-data class User(val id: Int, var name: String, var email: String, var photoUrl: String)
+data class User(
+    val userId: Int,
+    var userName: String,
+    var userLastName : String,
+    var userEmail: String,
+    var userProfilePicture : String?)
