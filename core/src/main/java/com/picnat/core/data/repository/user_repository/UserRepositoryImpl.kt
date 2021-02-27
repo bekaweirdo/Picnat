@@ -4,35 +4,47 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.picnat.core.data.models.User
 import com.picnat.core.network.ResponseState
+import com.picnat.core.network.ResponseState.Companion.failed
+import com.picnat.core.network.ResponseState.Companion.loading
+import com.picnat.core.network.ResponseState.Companion.success
+import com.picnat.core.network.ResponseState.Companion.successWithData
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.tasks.await
 
-class UserRepositoryImpl(private val database : FirebaseFirestore) : UserRepository {
+class UserRepositoryImpl(private val database: FirebaseFirestore) : UserRepository {
 
-    companion object{
+    companion object {
         private const val USER_COLLECTION = "users"
     }
 
-    override suspend fun getData(userId: String): ResponseState<User> {
+    override suspend fun getData(userId: String): Flow<ResponseState<User>> = flow {
+        emit(loading())
         val userDocument = database.collection(USER_COLLECTION).document(userId).get().await()
         val user = userDocument.toObject(User::class.java)
-        return if(user != null)
-            ResponseState.successWithData(user)
+        if (user != null)
+            emit(successWithData(user))
         else
-            ResponseState.failed("User doesn't exists")
+            emit(failed<User>("User doesn't exists"))
     }
 
-    override suspend fun saveData(user : User) : ResponseState<Nothing> {
+    override suspend fun saveData(user: User): Flow<ResponseState<Nothing>> = flow {
+        emit(loading())
         database.collection(USER_COLLECTION).document(user.userId).set(user).await()
-        return ResponseState.success()
+        emit(success())
     }
 
-    override suspend fun writeData(userId: String, field: String, value: Any) : ResponseState<Nothing> {
-        return try {
+    override suspend fun writeData(
+        userId: String,
+        field: String,
+        value: Any
+    ): Flow<ResponseState<Nothing>> = flow {
+        emit(loading())
+        try {
             database.collection(USER_COLLECTION).document(userId).update(field, value).await()
-            ResponseState.success()
-        }
-        catch (e: FirebaseFirestoreException){
-            ResponseState.failed("Failed updating data!")
+            emit(success<Nothing>())
+        } catch (e: FirebaseFirestoreException) {
+            emit(failed<Nothing>("Failed updating data!"))
         }
     }
 

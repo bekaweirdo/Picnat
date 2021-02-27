@@ -1,22 +1,29 @@
 package com.picnat.core.base
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.picnat.core.App
 import com.picnat.core.navigation.impl.GlobalNavigatorImpl
 import com.picnat.core.navigation.impl.LocalNavigatorImpl
 import org.koin.android.ext.android.inject
 
 abstract class BaseFragment<VM : BaseFeatureVM?> : Fragment() {
 
-    protected val localNavigator : LocalNavigatorImpl by inject()
+    companion object {
+        const val LOADING = "LOADING"
+    }
 
-    protected val globalNavigator : GlobalNavigatorImpl by inject()
+    protected val localNavigator: LocalNavigatorImpl by inject()
+
+    protected val globalNavigator: GlobalNavigatorImpl by inject()
 
     protected abstract val viewModel: VM?
 
@@ -42,8 +49,14 @@ abstract class BaseFragment<VM : BaseFeatureVM?> : Fragment() {
 
 
     open fun onBindViewModel(viewModel: VM) {
-        viewModel?.errorMessage?.observe{
+        viewModel?.errorMessage?.observe {
             Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+        }
+        viewModel?._showLoading?.observe { showLoading ->
+            val intent = Intent(LOADING).apply {
+                putExtra(LOADING, showLoading)
+            }
+            LocalBroadcastManager.getInstance(App.appContext).sendBroadcast(intent)
         }
     }
 

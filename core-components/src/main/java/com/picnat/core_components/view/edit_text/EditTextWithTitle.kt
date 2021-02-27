@@ -14,9 +14,9 @@ class EditTextWithTitle @JvmOverloads constructor(
 ) : FrameLayout(context, attrs) {
 
     private lateinit var hint: String
-    private var hintColor = ContextCompat.getColor(context, R.color.colorGray)
+    private var hintColor = ContextCompat.getColor(context, R.color.gray)
     lateinit var text: String
-    private var textColor = ContextCompat.getColor(context, R.color.colorBlack)
+    private var textColor = ContextCompat.getColor(context, R.color.black)
     private var inputType : Int = InputType.TYPE_CLASS_TEXT
     private val editText: EditText
 
