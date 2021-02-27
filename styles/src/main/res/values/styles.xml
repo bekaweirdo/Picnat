@@ -3,8 +3,8 @@
     <style name="EditTextStyle">
         <item name="android:layout_marginEnd">@dimen/dimen_p_20</item>
         <item name="android:layout_marginStart">@dimen/dimen_p_20</item>
-        <item name="android:textColorHint">@color/colorGray</item>
-        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/dimen_sp_14</item>
     </style>
 </resources>

@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:paddingVertical="@dimen/dimen_p_15"
     android:paddingHorizontal="@dimen/dimen_p_20"
-    tools:backgroundTint="@color/colorGray"
+    tools:backgroundTint="@color/gray"
     android:background="@drawable/rounded_button_background"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:text="sample text"
-        tools:textColor="@color/colorWhite"
+        tools:textColor="@color/white"
         android:gravity="center"/>
 
 </FrameLayout>

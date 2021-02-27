@@ -18,6 +18,7 @@ object Versions {
     const val material = "1.3.0"
     const val legacySupport = "1.0.0"
     const val constraintLayout = "2.0.4"
+    const val localBroadcastManager = "1.0.0"
 
     const val firebaseAuth = "20.0.2"
     const val firebaseStorage = "19.2.1"
@@ -81,6 +82,7 @@ object SupportLibraries {
     val materialLib = "com.google.android.material:material:${Versions.material}"
     val constraintLayoutLib = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     val legacyLib = "androidx.legacy:legacy-support-v4:${Versions.legacySupport}"
+    val localBroadcastManagerLib = "androidx.localbroadcastmanager:localbroadcastmanager:${Versions.localBroadcastManager}"
 }
 
 object TestLibraries {

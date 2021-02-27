@@ -20,34 +20,34 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.picnat.core_components.view.edit_text.EditTextWithTitle
-            android:id="@+id/authSignUpEmail"
+            android:id="@+id/authSignUpUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_p_100"
-            app:EditTextWithTitle_Hint="@string/auth_email"
-            app:EditTextWithTitle_InputType="email"
+            app:EditTextWithTitle_Hint="@string/auth_username"
+            app:EditTextWithTitle_InputType="password"
             app:layout_constraintTop_toBottomOf="@id/logInLogo" />
 
         <com.picnat.core_components.view.edit_text.EditTextWithTitle
-            android:id="@+id/authSignUpPassword"
+            android:id="@+id/authSignUpName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_p_30"
-            app:EditTextWithTitle_Hint="@string/auth_password"
-            app:EditTextWithTitle_InputType="password"
-            app:layout_constraintTop_toBottomOf="@id/authSignUpEmail" />
+            app:EditTextWithTitle_Hint="@string/auth_first_name"
+            app:EditTextWithTitle_InputType="email"
+            app:layout_constraintTop_toBottomOf="@id/authSignUpUsername" />
 
         <com.picnat.core_components.view.edit_text.EditTextWithTitle
-            android:id="@+id/authSignUpPasswordConfirm"
+            android:id="@+id/authSignUpLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_p_30"
-            app:EditTextWithTitle_Hint="@string/confirm_password"
+            app:EditTextWithTitle_Hint="@string/auth_last_name"
             app:EditTextWithTitle_InputType="password"
-            app:layout_constraintTop_toBottomOf="@id/authSignUpPassword" />
+            app:layout_constraintTop_toBottomOf="@id/authSignUpName" />
 
         <com.picnat.core_components.view.button.RoundedButton
-            android:id="@+id/authSignUpButton"
+            android:id="@+id/authSignUpInfoButton"
             android:layout_width="@dimen/dimen_p_150"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_p_50"
@@ -56,19 +56,7 @@
             app:RoundedButton_TextColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/authSignUpPasswordConfirm" />
-
-        <TextView
-            android:id="@+id/authSignUpLogIn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_p_50"
-            android:layout_marginBottom="@dimen/dimen_p_20"
-            android:gravity="center"
-            android:text="@string/if_you_have_an_account_log_in"
-            android:textSize="@dimen/dimen_sp_16"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/authSignUpLastName" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

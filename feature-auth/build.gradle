@@ -9,5 +9,6 @@ dependencies {
     implementation project(':styles')
     implementation SupportLibraries.constraintLayoutLib
     implementation Libraries.coroutinesPlayServicesLib
+    implementation platform(Libraries.firebaseBomLib)
     implementation Libraries.firebaseAuthLib
 }

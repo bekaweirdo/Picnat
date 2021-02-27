@@ -9,7 +9,6 @@ class LocalNavigatorImpl(private val router: Router) : LocalNavigator {
     override fun navigateTo(screen: FragmentScreen) {
         router.navigateTo(screen)
     }
-
     override fun clearFlowAndNavigateTo(screen: FragmentScreen) {
         router.navigateTo(screen, true)
     }

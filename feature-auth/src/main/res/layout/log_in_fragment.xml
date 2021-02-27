@@ -1,47 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <ImageView
-        android:id="@+id/logInLogo"
-        android:layout_width="@dimen/dimen_p_100"
-        android:layout_height="@dimen/dimen_p_50"
-        android:layout_marginTop="@dimen/dimen_p_100"
-        android:src="@drawable/ic_picnat_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <com.picnat.core_components.view.button.ImageButton
-        android:id="@+id/languageImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_p_20"
-        android:background="@drawable/rounded_button_background"
-        android:clickable="true"
-        android:focusable="true"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/logInLogo"
+            android:layout_width="@dimen/dimen_p_100"
+            android:layout_height="@dimen/dimen_p_50"
+            android:layout_marginTop="@dimen/dimen_p_100"
+            android:src="@drawable/ic_picnat_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/languageLabel"
+        <com.picnat.core_components.view.button.ImageButton
+            android:id="@+id/languageImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/dimen_sp_15"
-            android:layout_marginStart="@dimen/dimen_p_12"
-            android:layout_marginEnd="@dimen/dimen_p_12"
-            tools:text="Language Label"
-            app:layout_constraintEnd_toEndOf="@id/languageImageView"
-            app:layout_constraintTop_toTopOf="@id/languageImageView"
-            app:layout_constraintBottom_toBottomOf="@id/languageImageView"
-            app:layout_constraintStart_toStartOf="@id/languageImageView"/>
+            android:layout_marginTop="@dimen/dimen_p_20"
+            android:background="@drawable/rounded_button_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    </com.picnat.core_components.view.button.ImageButton>
+            <TextView
+                android:id="@+id/languageLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/dimen_sp_15"
+                android:layout_marginStart="@dimen/dimen_p_12"
+                android:layout_marginEnd="@dimen/dimen_p_12"
+                tools:text="Language Label"
+                app:layout_constraintEnd_toEndOf="@id/languageImageView"
+                app:layout_constraintTop_toTopOf="@id/languageImageView"
+                app:layout_constraintBottom_toBottomOf="@id/languageImageView"
+                app:layout_constraintStart_toStartOf="@id/languageImageView"/>
+
+        </com.picnat.core_components.view.button.ImageButton>
+
+        <com.picnat.core_components.view.edit_text.EditTextWithTitle
+            android:id="@+id/authLoginEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_p_150"
+            app:EditTextWithTitle_Hint="@string/auth_email"
+            app:layout_constraintTop_toBottomOf="@id/logInLogo" />
 
     <com.picnat.core_components.view.edit_text.EditTextWithTitle
         android:id="@+id/authLoginEmail"
@@ -51,36 +63,38 @@
         app:EditTextWithTitle_Hint="@string/auth_email"
         app:layout_constraintTop_toBottomOf="@id/logInLogo" />
 
-    <com.picnat.core_components.view.edit_text.EditTextWithTitle
-        android:id="@+id/authLoginPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_p_30"
-        app:EditTextWithTitle_Hint="@string/auth_password"
-        app:layout_constraintTop_toBottomOf="@id/authLoginEmail" />
+        <com.picnat.core_components.view.edit_text.EditTextWithTitle
+            android:id="@+id/authLoginPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_p_30"
+            app:EditTextWithTitle_Hint="@string/auth_password"
+            app:layout_constraintTop_toBottomOf="@id/authLoginEmail" />
 
-    <com.picnat.core_components.view.button.RoundedButton
-        android:id="@+id/authLoginButton"
-        android:layout_width="@dimen/dimen_p_150"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_p_50"
-        app:RoundedButton_Color="@color/colorBlack"
-        app:RoundedButton_Text="@string/auth_login"
-        app:RoundedButton_TextColor="@color/colorWhite"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/authLoginPassword" />
+        <com.picnat.core_components.view.button.RoundedButton
+            android:id="@+id/authLoginButton"
+            android:layout_width="@dimen/dimen_p_150"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_p_50"
+            app:RoundedButton_Color="@color/black"
+            app:RoundedButton_Text="@string/auth_login"
+            app:RoundedButton_TextColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/authLoginPassword" />
 
-    <TextView
-        android:id="@+id/authLogInSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_p_50"
-        android:layout_marginBottom="@dimen/dimen_p_20"
-        android:gravity="center"
-        android:text="@string/if_you_dont_have_an_account_sign_up"
-        android:textSize="@dimen/dimen_sp_16"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        <TextView
+            android:id="@+id/authLogInSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_p_50"
+            android:layout_marginBottom="@dimen/dimen_p_20"
+            android:gravity="center"
+            android:text="@string/if_you_dont_have_an_account_sign_up"
+            android:textSize="@dimen/dimen_sp_16"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

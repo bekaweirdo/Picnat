@@ -2,14 +2,14 @@ package com.picnat.feature_auth.ui.login
 
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.picnat.core.base.BaseFragment
+import com.picnat.core_components.view.button.RoundedButton
 import com.picnat.core.locale.LocaleManager
 import com.picnat.core_components.view.button.ImageButton
-import com.picnat.core_components.view.button.RoundedButton
 import com.picnat.core_components.view.edit_text.EditTextWithTitle
 import com.picnat.feature_auth.R
+import com.picnat.feature_auth.feature.AuthFeature
 import org.koin.android.ext.android.inject
 
 
@@ -23,6 +23,8 @@ class LogInFragment : BaseFragment<LogInViewModel>() {
     private lateinit var emailEditText: EditTextWithTitle
     private lateinit var passwordEditText: EditTextWithTitle
     private lateinit var loginButton : RoundedButton
+    private lateinit var signUpText : TextView
+    private lateinit var loginButton : RoundedButton
     private lateinit var languageImageView: ImageButton
     private lateinit var languageLabel: TextView
     private var changeLanguageMenu: AlertDialog.Builder? = null
@@ -31,6 +33,11 @@ class LogInFragment : BaseFragment<LogInViewModel>() {
         emailEditText = view.findViewById(R.id.authLoginEmail)
         passwordEditText = view.findViewById(R.id.authLoginPassword)
         loginButton = view.findViewById(R.id.authLoginButton)
+        signUpText = view.findViewById(R.id.authLogInSignUp)
+
+        signUpText.setOnClickListener {
+            localNavigator.navigateTo(AuthFeature.AuthScreens.authSignUp())
+        }
         languageImageView = view.findViewById(R.id.languageImageView)
         languageLabel = view.findViewById(R.id.languageLabel)
     }
@@ -43,11 +50,7 @@ class LogInFragment : BaseFragment<LogInViewModel>() {
         loginButton.setOnClickListener {
             val email = emailEditText.getInput()
             val password = passwordEditText.getInput()
-            if (email.isBlank() || password.isBlank())
-                Toast.makeText(requireContext(), "Email or password is blank!", Toast.LENGTH_SHORT)
-                    .show()
-            else
-                vm.login(email, password)
+            viewModel.login(email, password)
         }
         languageLabel.text = vm.localManager.selectedLanguage.shortName
         languageImageView.visibility = View.VISIBLE
