@@ -39,6 +39,9 @@ object Versions {
     const val espresso = "3.3.0"
     const val junitTest = "1.1.2"
     const val testRunner = "1.2.0"
+
+    const val recyclerView = "1.1.0"
+    const val glide = "4.12.0"
 }
 
 object Libraries{
@@ -67,6 +70,10 @@ object Libraries{
     const val roomCoroutinesLib = "androidx.room:room-ktx:${Versions.roomDatabase}"
 
     const val ciceroneLib = "com.github.terrakok:cicerone:${Versions.cicerone}"
+
+    const val recyclerViewLib = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
+    const val glideLib = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val glideAnnotation = "com.github.bumptech.glide:compiler:${Versions.glide}"
 }
 
 object SupportLibraries {
