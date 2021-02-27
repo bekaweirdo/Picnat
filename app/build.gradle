@@ -29,7 +29,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+    implementation SupportLibraries.localBroadcastManagerLib
     implementation SupportLibraries.constraintLayoutLib
 
     implementation Libraries.koinLib
