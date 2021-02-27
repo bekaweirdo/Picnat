@@ -5,8 +5,11 @@ import com.picnat.app.PicnatAppNavigator
 import com.picnat.app.data.database.PicnatDatabase
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.Router
+import com.picnat.core.data.shared_preferences.SharedPreferencesManagerImpl
+import com.picnat.core.locale.LocaleManager
 import com.picnat.core.navigation.impl.GlobalNavigatorImpl
 import org.koin.android.ext.koin.androidApplication
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
 val roomDataSourceModule = module {
@@ -23,4 +26,12 @@ val navigationModule = module {
     single { get<Cicerone<Router>>().router }
     single { PicnatAppNavigator(activity = get(), containerRes = get()) }
     single { GlobalNavigatorImpl(router = get(), get()) }
+}
+
+val sharedPreference = module {
+    single { SharedPreferencesManagerImpl(androidContext()) }
+}
+
+val localeManagerModule  = module {
+    single { LocaleManager(get()) }
 }
