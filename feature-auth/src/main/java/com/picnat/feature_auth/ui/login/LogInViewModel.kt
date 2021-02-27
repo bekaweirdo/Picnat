@@ -8,12 +8,14 @@ import com.picnat.core.data.repository.user_repository.UserRepositoryImpl
 import com.picnat.core.network.extension.go
 import com.picnat.feature_auth.R
 import com.picnat.feature_auth.data.repository.AuthRepositoryImpl
+import com.picnat.feature_auth.domain.GetUserUseCase
+import com.picnat.feature_auth.domain.LogInUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class LogInViewModel(
-    private val authRepository: AuthRepositoryImpl,
-    private val userRepository: UserRepositoryImpl
+    private val getUserUseCase: GetUserUseCase,
+    private val logInUseCase: LogInUseCase
 ) : BaseFeatureVM() {
 
     fun login(email: String, password: String) {
@@ -23,8 +25,8 @@ class LogInViewModel(
             return
         }
 
-        viewModelScope.launch(Dispatchers.IO) {
-            authRepository.login(email, password).go(
+        viewModelScope.launch {
+            logInUseCase.invoke(LogInUseCase.Params(email, password)).go(
                 loading = { showLoading() },
                 onFinished = { hideLoading() },
                 onSuccessWithData = { getUserData(it!!) },
@@ -34,8 +36,8 @@ class LogInViewModel(
     }
 
     private fun getUserData(user: FirebaseUser) {
-        viewModelScope.launch(Dispatchers.IO) {
-            userRepository.getData(user.uid).go(
+        viewModelScope.launch {
+            getUserUseCase.invoke(GetUserUseCase.Params(user.uid)).go(
                 loading = { showLoading() },
                 onFinished = { hideLoading() },
                 onSuccessWithData = { App.currentUser = it },
