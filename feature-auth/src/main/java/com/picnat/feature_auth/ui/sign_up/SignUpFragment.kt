@@ -14,8 +14,8 @@ class SignUpFragment : BaseFragment<SignUpViewModel>() {
 
     override fun initViews(view: View) {}
 
-    override fun onBindViewModel(viewModel: SignUpViewModel) {
-        super.onBindViewModel(viewModel)
+    override fun onBindViewModel(vm: SignUpViewModel) {
+        super.onBindViewModel(vm)
 
     }
 }

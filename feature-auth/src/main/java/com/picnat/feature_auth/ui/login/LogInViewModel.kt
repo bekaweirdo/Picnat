@@ -2,13 +2,17 @@ package com.picnat.feature_auth.ui.login
 
 import androidx.lifecycle.viewModelScope
 import com.picnat.core.base.BaseFeatureVM
+import com.picnat.core.locale.LocaleManager
 import com.picnat.core.network.extension.go
 import com.picnat.feature_auth.feature.AuthFeature
 import com.picnat.feature_auth.network.repository.AuthRepositoryImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.koin.core.component.inject
 
 class LogInViewModel (private val authRepository: AuthRepositoryImpl) : BaseFeatureVM() {
+
+    val localManager: LocaleManager by inject()
     fun login(email : String, password : String) {
         localNavigator.navigateTo(AuthFeature.AuthScreens.authSignUp())
         viewModelScope.launch(Dispatchers.IO) {
