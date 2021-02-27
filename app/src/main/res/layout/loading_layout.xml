@@ -7,7 +7,7 @@
     android:focusable="true"
     android:visibility="gone"
     android:focusableInTouchMode="true"
-    android:background="#CC434343">
+    android:background="@color/burgundy">
 
     <ProgressBar
         android:layout_width="wrap_content"
