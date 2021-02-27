@@ -37,7 +37,7 @@ abstract class BaseFragment<VM : ViewModel?> : Fragment() {
     }
 
 
-    open fun onBindViewModel(viewModel: VM) {}
+    open fun onBindViewModel(vm: VM) {}
 
     protected fun <T> LiveData<T>.observe(onChanged: (T) -> Unit) {
         observe(viewLifecycleOwner, onChanged)
