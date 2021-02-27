@@ -22,7 +22,6 @@ class LogInFragment : BaseFragment<LogInViewModel>() {
 
     private lateinit var emailEditText: EditTextWithTitle
     private lateinit var passwordEditText: EditTextWithTitle
-    private lateinit var loginButton : RoundedButton
     private lateinit var signUpText : TextView
     private lateinit var loginButton : RoundedButton
     private lateinit var languageImageView: ImageButton

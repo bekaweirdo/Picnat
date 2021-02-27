@@ -5,16 +5,20 @@ import com.google.firebase.auth.FirebaseUser
 import com.picnat.core.App
 import com.picnat.core.base.BaseFeatureVM
 import com.picnat.core.data.repository.user_repository.UserRepositoryImpl
+import com.picnat.core.locale.LocaleManager
 import com.picnat.core.network.extension.go
 import com.picnat.feature_auth.R
 import com.picnat.feature_auth.data.repository.AuthRepositoryImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.koin.core.component.inject
 
 class LogInViewModel(
     private val authRepository: AuthRepositoryImpl,
     private val userRepository: UserRepositoryImpl
 ) : BaseFeatureVM() {
+
+    val localManager: LocaleManager by inject()
 
     fun login(email: String, password: String) {
 

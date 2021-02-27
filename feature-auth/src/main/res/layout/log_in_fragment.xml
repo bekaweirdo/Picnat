@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -46,14 +47,6 @@
                 app:layout_constraintStart_toStartOf="@id/languageImageView"/>
 
         </com.picnat.core_components.view.button.ImageButton>
-
-        <com.picnat.core_components.view.edit_text.EditTextWithTitle
-            android:id="@+id/authLoginEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_p_150"
-            app:EditTextWithTitle_Hint="@string/auth_email"
-            app:layout_constraintTop_toBottomOf="@id/logInLogo" />
 
     <com.picnat.core_components.view.edit_text.EditTextWithTitle
         android:id="@+id/authLoginEmail"
