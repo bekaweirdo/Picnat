@@ -4,8 +4,7 @@
     android:layout_height="wrap_content"
     android:maxHeight="@dimen/dimen_p_70"
     android:layout_marginHorizontal="@dimen/dimen_p_30"
-    android:background="@drawable/edit_text_with_title_background"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:background="@drawable/edit_text_with_title_background">
 
     <EditText
         android:id="@+id/textInputEditText"

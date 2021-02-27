@@ -6,4 +6,14 @@
     <string name="auth_sign_up">Sign up</string>
     <string name="auth_forgot_password">Forgot password?</string>
     <string name="if_you_dont_have_an_account_sign_up">If you dont have an account, Sign up</string>
+    <string name="coud_not_get_user_data">Could not get user data</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="if_you_have_an_account_log_in">If you have an accout, log in</string>
+    <string name="fill_all_the_fields">Fill all the fields!</string>
+    <string name="passwords_doesnt_match">Passwords doesn\'t match!</string>
+    <string name="auth_could_not_get_user_data">Could not get user data!</string>
+    <string name="auth_could_not_sign_up">Could not sign up, try again</string>
+    <string name="auth_last_name">Last name</string>
+    <string name="auth_first_name">First name</string>
+    <string name="auth_username">Username</string>
 </resources>

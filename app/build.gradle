@@ -29,6 +29,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation SupportLibraries.localBroadcastManagerLib
     implementation SupportLibraries.constraintLayoutLib
 
     implementation Libraries.koinLib
@@ -38,6 +39,7 @@ dependencies {
 
     implementation platform(Libraries.firebaseBomLib)
     implementation Libraries.firebaseAuthLib
+    implementation Libraries.firebaseFirestoreLib
 
     implementation Libraries.roomLib
     implementation Libraries.roomCoroutinesLib
