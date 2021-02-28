@@ -53,7 +53,7 @@ class EditTextWithTitle @JvmOverloads constructor(
             )
             inputType = attributes.getInt(
                 R.styleable.EditTextWithTitle_EditTextWithTitle_InputType,
-                InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+                inputType
             )
         } finally {
             attributes.recycle()
