@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.picnat.core.data.resource_provider.ResourceProvider
 import com.picnat.core.navigation.api.GlobalNavigator
 import com.picnat.core.navigation.api.LocalNavigator
+import com.picnat.core.utils.SingleEventLiveData
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
@@ -20,4 +21,10 @@ abstract class BaseFeatureVM : ViewModel(), KoinComponent {
 
     protected fun showLoading() = _showLoading.postValue(true)
     protected fun hideLoading() = _showLoading.postValue(false)
+
+    init {
+        if(!errorMessage.value.isNullOrEmpty())
+            errorMessage.value = null
+    }
+
 }

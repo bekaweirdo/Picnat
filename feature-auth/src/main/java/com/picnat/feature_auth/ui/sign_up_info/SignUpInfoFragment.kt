@@ -7,13 +7,13 @@ import com.picnat.core_components.view.button.RoundedButton
 import com.picnat.core_components.view.edit_text.EditTextWithTitle
 import com.picnat.feature_auth.R
 import com.picnat.feature_auth.data.model.SignUpInfoModel
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SignUpInfoFragment : BaseFragment<SignUpInfoViewModel>() {
 
     override val getLayout: Int
         get() = R.layout.sign_up_info_fragment
-    override val viewModel: SignUpInfoViewModel by inject()
+    override val viewModel: SignUpInfoViewModel by viewModel()
 
     private val signUpInfoModel by lazy {
         requireArguments().get(SIGN_UP_INFO_MODEL) as SignUpInfoModel

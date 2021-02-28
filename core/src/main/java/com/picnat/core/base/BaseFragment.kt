@@ -74,6 +74,10 @@ abstract class BaseFragment<VM : BaseFeatureVM?> : Fragment() {
     }
 
     fun MutableLiveData<String>.doubleBind(editText: EditText) {
+        if(this.value != editText.text.toString()){
+            editText.setText(this.value)
+        }
+
         editText.getChanges {
             if(this.value != it)
                 this.value = it

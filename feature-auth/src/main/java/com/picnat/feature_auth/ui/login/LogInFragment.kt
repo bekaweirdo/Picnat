@@ -8,7 +8,7 @@ import com.picnat.core_components.view.button.RoundedButton
 import com.picnat.core_components.view.edit_text.EditTextWithTitle
 import com.picnat.feature_auth.R
 import com.picnat.feature_auth.feature.AuthFeature
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class LogInFragment : BaseFragment<LogInViewModel>() {
@@ -16,7 +16,7 @@ class LogInFragment : BaseFragment<LogInViewModel>() {
     override val getLayout: Int
         get() = R.layout.log_in_fragment
 
-    override val viewModel: LogInViewModel by inject()
+    override val viewModel: LogInViewModel by viewModel()
 
     private lateinit var emailEditText: EditTextWithTitle
     private lateinit var passwordEditText: EditTextWithTitle

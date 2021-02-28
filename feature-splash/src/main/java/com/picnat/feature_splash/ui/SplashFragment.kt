@@ -5,13 +5,13 @@ import android.view.View
 import android.widget.ImageView
 import com.picnat.core.base.BaseFragment
 import com.picnat.feature_splash.R
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SplashFragment : BaseFragment<SplashViewModel>() {
 
-    override val viewModel: SplashViewModel by inject()
     override val getLayout: Int
         get() = R.layout.splash_fragment
+    override val viewModel: SplashViewModel by viewModel()
 
     private lateinit var splashLogo: ImageView
 

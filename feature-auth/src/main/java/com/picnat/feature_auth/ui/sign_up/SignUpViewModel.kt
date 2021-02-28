@@ -24,7 +24,7 @@ class SignUpViewModel : AuthFeatureVM() {
             ) && checkEmailValidity(email.value!!) && checkPasswordValidity(password.value!!)
         ) {
             if (password.value!! != confirmPassword.value!!) {
-                errorMessage.postValue(resourceProvider.getString(R.string.passwords_doesnt_match))
+                errorMessage.value = resourceProvider.getString(R.string.passwords_doesnt_match)
                 return
             }
 
