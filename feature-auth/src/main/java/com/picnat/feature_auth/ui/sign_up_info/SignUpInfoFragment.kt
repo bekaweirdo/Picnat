@@ -24,8 +24,7 @@ class SignUpInfoFragment : BaseFragment<SignUpInfoViewModel>() {
     private lateinit var lastNameEditText: EditTextWithTitle
     private lateinit var signUpButton: RoundedButton
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun initViews(view: View) {
         usernameEditText = view.findViewById(R.id.authSignUpUsername)
         firstNameEditText = view.findViewById(R.id.authSignUpName)
         lastNameEditText = view.findViewById(R.id.authSignUpLastName)
@@ -41,6 +40,7 @@ class SignUpInfoFragment : BaseFragment<SignUpInfoViewModel>() {
             )
         }
     }
+
     companion object {
 
         val SIGN_UP_INFO_MODEL: String = this::class.java.simpleName
