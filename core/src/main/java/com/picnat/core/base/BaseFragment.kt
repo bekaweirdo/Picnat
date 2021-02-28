@@ -28,8 +28,6 @@ abstract class BaseFragment<VM : BaseFeatureVM?> : Fragment() {
 
     abstract val getLayout: Int
 
-    abstract fun initViews(view: View)
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (viewModel != null)
@@ -41,9 +39,7 @@ abstract class BaseFragment<VM : BaseFeatureVM?> : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(getLayout, container, false)
-        initViews(view)
-        return view
+        return inflater.inflate(getLayout, container, false)
     }
 
 

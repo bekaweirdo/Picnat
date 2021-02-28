@@ -1,5 +1,6 @@
 package com.picnat.feature_auth.ui.sign_up
 
+import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.picnat.core.base.BaseFragment
@@ -21,12 +22,15 @@ class SignUpFragment : BaseFragment<SignUpViewModel>() {
     private lateinit var signUpButton: RoundedButton
     private lateinit var logInText: TextView
 
-    override fun initViews(view: View) {
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         emailEditText = view.findViewById(R.id.authSignUpEmail)
         passwordEditText = view.findViewById(R.id.authSignUpPassword)
         confirmPasswordEditText = view.findViewById(R.id.authSignUpPasswordConfirm)
         signUpButton = view.findViewById(R.id.authSignUpButton)
         logInText = view.findViewById(R.id.authSignUpLogIn)
+
 
         logInText.setOnClickListener {
             localNavigator.navigateTo(AuthFeature.AuthScreens.authLogIn())
