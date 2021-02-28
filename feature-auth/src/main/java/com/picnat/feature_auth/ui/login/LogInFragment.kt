@@ -4,8 +4,11 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.picnat.core.base.BaseFragment
+import com.picnat.core.locale.Language
 import com.picnat.core_components.view.button.RoundedButton
 import com.picnat.core.locale.LocaleManager
+import com.picnat.core.locale.adapter.LanguageAdapter
+import com.picnat.core_components.menu.BottomMenuDialog
 import com.picnat.core_components.view.button.ImageButton
 import com.picnat.core_components.view.edit_text.EditTextWithTitle
 import com.picnat.feature_auth.R
@@ -26,7 +29,7 @@ class LogInFragment : BaseFragment<LogInViewModel>() {
     private lateinit var loginButton : RoundedButton
     private lateinit var languageImageView: ImageButton
     private lateinit var languageLabel: TextView
-    private var changeLanguageMenu: AlertDialog.Builder? = null
+    private var changeLanguageMenu: BottomMenuDialog? = null
 
     override fun initViews(view: View) {
         emailEditText = view.findViewById(R.id.authLoginEmail)
@@ -44,7 +47,7 @@ class LogInFragment : BaseFragment<LogInViewModel>() {
     override fun onBindViewModel(vm: LogInViewModel) {
         super.onBindViewModel(vm)
         languageImageView.setOnClickListener {
-//            changeLanguageMenu?.show()
+            changeLanguageMenu?.show()
         }
         loginButton.setOnClickListener {
             val email = emailEditText.getInput()
@@ -57,14 +60,19 @@ class LogInFragment : BaseFragment<LogInViewModel>() {
     }
 
     private fun initLanguageMenu(localManager: LocaleManager) {
-//        changeLanguageMenu = AlertDialog.Builder(requireContext())
-//            .setTitle("Choose a Language")
-//            .setMessage("Hello")
-//            .setAdapter()
-//        changeLanguageMenu!!.setOnCancelListener {
-//            Toast.makeText(context, localManager.selectedLanguage.displayName, Toast.LENGTH_SHORT)
-//                .show()
-//            activity?.recreate()
-//        }
+        changeLanguageMenu = BottomMenuDialog(requireContext(),requireView())
+        changeLanguageMenu?.setMenuMessage("Select a Language")
+        changeLanguageMenu?.setAdapter(
+            LanguageAdapter(
+                localManager.languageOptions,
+                localManager.selectedLanguage
+            )
+        )
+        changeLanguageMenu?.listener(menuListener = {position, language ->
+            if (position != -1) {
+                viewModel.changeLanguage(language as Language)
+                activity?.recreate()
+            }
+        })
     }
 }

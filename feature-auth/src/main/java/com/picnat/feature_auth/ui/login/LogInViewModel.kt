@@ -5,6 +5,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.picnat.core.App
 import com.picnat.core.base.BaseFeatureVM
 import com.picnat.core.data.repository.user_repository.UserRepositoryImpl
+import com.picnat.core.locale.Language
 import com.picnat.core.locale.LocaleManager
 import com.picnat.core.network.extension.go
 import com.picnat.feature_auth.R
@@ -19,6 +20,7 @@ class LogInViewModel(
 ) : BaseFeatureVM() {
 
     val localManager: LocaleManager by inject()
+    var selectOnLanguageChange = false
 
     fun login(email: String, password: String) {
 
@@ -46,5 +48,10 @@ class LogInViewModel(
                 onFailure = { errorMessage.postValue(resourceProvider.getString(R.string.coud_not_get_user_data)) }
             )
         }
+    }
+
+    fun changeLanguage(language: Language){
+        localManager.selectedLanguage = language
+        selectOnLanguageChange = true
     }
 }

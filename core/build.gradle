@@ -9,6 +9,7 @@ dependencies {
     implementation platform(Libraries.firebaseBomLib)
     implementation Libraries.firebaseFirestoreLib
     implementation project(':styles')
+    implementation project(':core-components')
     implementation Libraries.glideLib
     implementation Libraries.glideAnnotation
 }
