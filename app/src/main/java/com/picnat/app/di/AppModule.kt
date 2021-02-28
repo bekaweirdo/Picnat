@@ -7,6 +7,7 @@ import com.picnat.app.data.database.PicnatDatabase
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.Router
 import com.google.firebase.firestore.FirebaseFirestore
+import com.picnat.app.MainActivity
 import com.picnat.core.base.coroutines.CoroutineDispatcherProvider
 import com.picnat.core.data.repository.user_repository.UserRepository
 import com.picnat.core.data.repository.user_repository.UserRepositoryImpl
@@ -41,7 +42,7 @@ val navigationModule = module {
     single { Cicerone.create(customRouter = Router()) }
     single { get<Cicerone<Router>>().getNavigatorHolder() }
     single { get<Cicerone<Router>>().router }
-    single { PicnatAppNavigator(activity = get(), containerRes = get()) }
+    factory { PicnatAppNavigator(activity = get(), containerRes = get()) }
     fun provideGlobalNavigator(router: Router, context: Context) : GlobalNavigator {
         return GlobalNavigatorImpl(router, context)
     }

@@ -7,11 +7,15 @@ import com.google.firebase.FirebaseApp
 import com.picnat.app.di.appModule
 import com.picnat.app.di.coroutineDispatcherProviderModule
 import com.picnat.core.App
+import com.picnat.core.navigation.api.GlobalNavigator
+import com.picnat.feature_splash.feature.SplashFeature
+import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
 
 class PicnatApplication : Application() {
+    private val globalNavigator : GlobalNavigator by inject()
     override fun onCreate() {
         super.onCreate()
         App.appContext = applicationContext
@@ -20,5 +24,6 @@ class PicnatApplication : Application() {
             androidContext(this@PicnatApplication)
             modules(appModule, roomDataSourceModule, coroutineDispatcherProviderModule, navigationModule)
         }
+        globalNavigator.loadFeature(SplashFeature, SplashFeature.SplashScreens.splashScreen())
     }
 }
