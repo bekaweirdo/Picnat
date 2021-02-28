@@ -1,6 +1,9 @@
+package com.picnat.core.utils
+
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 
 //package com.picnat.core.utils
@@ -53,18 +56,3 @@ import androidx.lifecycle.MutableLiveData
 //        private const val TAG = "SingleLiveEvent"
 //    }
 //}
-
-fun MutableLiveData<String>.bind(editText: EditText) {
-    editText.addTextChangedListener(object : TextWatcher{
-        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-            if(this@bind.value != s.toString())
-                this@bind.value = s.toString()
-        }
-
-        override fun afterTextChanged(s: Editable?) {}
-
-    })
-}
