@@ -6,10 +6,15 @@ import com.picnat.core.navigation.api.LocalNavigator
 
 class LocalNavigatorImpl(private val router: Router) : LocalNavigator {
 
+    override fun navigateWithoutClearing(screen: FragmentScreen) {
+        router.navigateTo(screen, false)
+    }
+
     override fun navigateTo(screen: FragmentScreen) {
         router.navigateTo(screen)
     }
-    override fun clearFlowAndNavigateTo(screen: FragmentScreen) {
-        router.navigateTo(screen, true)
+
+    override fun replaceScreen(screen: FragmentScreen) {
+        router.replaceScreen(screen)
     }
 }

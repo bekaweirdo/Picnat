@@ -29,7 +29,7 @@ class LogInFragment : BaseFragment<LogInViewModel>() {
         signUpText = view.findViewById(R.id.authLogInSignUp)
 
         signUpText.setOnClickListener {
-            localNavigator.navigateTo(AuthFeature.AuthScreens.authSignUp())
+            localNavigator.replaceScreen(AuthFeature.AuthScreens.authSignUp())
         }
     }
 

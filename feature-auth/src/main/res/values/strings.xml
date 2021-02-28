@@ -16,4 +16,6 @@
     <string name="auth_last_name">Last name</string>
     <string name="auth_first_name">First name</string>
     <string name="auth_username">Username</string>
+    <string name="auth_email_isnt_valid">E-mail isn\'t valid!</string>
+    <string name="auth_password_length_check">Password should be at least 6 symbols and no more than 32</string>
 </resources>
