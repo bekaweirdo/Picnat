@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_p_150"
             app:EditTextWithTitle_Hint="@string/auth_email"
+            app:EditTextWithTitle_InputType="email"
             app:layout_constraintTop_toBottomOf="@id/logInLogo" />
 
         <com.picnat.core_components.view.edit_text.EditTextWithTitle
@@ -33,6 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_p_30"
             app:EditTextWithTitle_Hint="@string/auth_password"
+            app:EditTextWithTitle_InputType="password"
             app:layout_constraintTop_toBottomOf="@id/authLoginEmail" />
 
         <com.picnat.core_components.view.button.RoundedButton

@@ -17,7 +17,7 @@ class EditTextWithTitle @JvmOverloads constructor(
     private var hintColor = ContextCompat.getColor(context, R.color.gray)
     lateinit var text: String
     private var textColor = ContextCompat.getColor(context, R.color.black)
-    private var inputType : Int = InputType.TYPE_CLASS_TEXT
+    private var inputType: Int = InputType.TYPE_CLASS_TEXT
     private val editText: EditText
 
     init {
@@ -25,11 +25,14 @@ class EditTextWithTitle @JvmOverloads constructor(
         getAttributes(attrs)
 
         editText = this.findViewById(R.id.textInputEditText)
+        editText.id = generateViewId()
+
         if (text.isBlank())
             editText.hint = hint
         else
             editText.setText(text)
-        editText.inputType = inputType
+
+        changeInputType()
 
         editText.setTextColor(textColor)
         editText.setHintTextColor(hintColor)
@@ -39,14 +42,43 @@ class EditTextWithTitle @JvmOverloads constructor(
         val attributes = context.obtainStyledAttributes(attrs, R.styleable.EditTextWithTitle, 0, 0)
         try {
             hint = attributes.getString(R.styleable.EditTextWithTitle_EditTextWithTitle_Hint) ?: ""
-            hintColor = attributes.getColor(R.styleable.EditTextWithTitle_EditTextWithTitle_HintColor, hintColor)
+            hintColor = attributes.getColor(
+                R.styleable.EditTextWithTitle_EditTextWithTitle_HintColor,
+                hintColor
+            )
             text = attributes.getString(R.styleable.EditTextWithTitle_EditTextWithTitle_Text) ?: ""
-            textColor = attributes.getColor(R.styleable.EditTextWithTitle_EditTextWithTitle_TextColor, textColor)
-            inputType = attributes.getInt(R.styleable.EditTextWithTitle_EditTextWithTitle_InputType, InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS)
+            textColor = attributes.getColor(
+                R.styleable.EditTextWithTitle_EditTextWithTitle_TextColor,
+                textColor
+            )
+            inputType = attributes.getInt(
+                R.styleable.EditTextWithTitle_EditTextWithTitle_InputType,
+                InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+            )
         } finally {
             attributes.recycle()
         }
     }
 
-    fun getInput() = editText.text.toString()
+    private fun changeInputType(){
+        when(inputType){
+            INPUT_TYPE_TEXT -> editText.inputType = InputType.TYPE_CLASS_TEXT
+            INPUT_TYPE_NUMBER -> editText.inputType = InputType.TYPE_CLASS_NUMBER
+            INPUT_TYPE_DECIMAL -> editText.inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
+            INPUT_TYPE_EMAIL -> editText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+            INPUT_TYPE_PASSWORD -> editText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        }
+    }
+
+    fun getInput() = editText
+
+    fun getInputText() = editText.text.toString()
+
+    companion object {
+        private const val INPUT_TYPE_TEXT = 1
+        private const val INPUT_TYPE_NUMBER = 2
+        private const val INPUT_TYPE_DECIMAL = 3
+        private const val INPUT_TYPE_EMAIL = 4
+        private const val INPUT_TYPE_PASSWORD = 5
+    }
 }
