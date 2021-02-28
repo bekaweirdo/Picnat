@@ -11,7 +11,7 @@ import org.koin.core.component.inject
 
 abstract class BaseFeatureVM : ViewModel(), KoinComponent {
 
-    val errorMessage = MutableLiveData<String>()
+    val errorMessage = SingleEventLiveData<String>()
     val _showLoading = MutableLiveData<Boolean>()
 
     val resourceProvider : ResourceProvider by inject()
@@ -21,10 +21,4 @@ abstract class BaseFeatureVM : ViewModel(), KoinComponent {
 
     protected fun showLoading() = _showLoading.postValue(true)
     protected fun hideLoading() = _showLoading.postValue(false)
-
-    init {
-        if(!errorMessage.value.isNullOrEmpty())
-            errorMessage.value = null
-    }
-
 }
