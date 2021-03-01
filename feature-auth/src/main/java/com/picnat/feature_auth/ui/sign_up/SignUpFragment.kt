@@ -8,13 +8,13 @@ import com.picnat.core_components.view.button.RoundedButton
 import com.picnat.core_components.view.edit_text.EditTextWithTitle
 import com.picnat.feature_auth.R
 import com.picnat.feature_auth.feature.AuthFeature
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SignUpFragment : BaseFragment<SignUpViewModel>() {
 
     override val getLayout: Int
         get() = R.layout.sign_up_fragment
-    override val viewModel: SignUpViewModel by inject()
+    override val viewModel: SignUpViewModel by viewModel()
 
     private lateinit var emailEditText: EditTextWithTitle
     private lateinit var passwordEditText: EditTextWithTitle
@@ -36,6 +36,11 @@ class SignUpFragment : BaseFragment<SignUpViewModel>() {
 
     override fun onBindViewModel(viewModel: SignUpViewModel) {
         super.onBindViewModel(viewModel)
+
+        viewModel.email.doubleBind(emailEditText.getInput())
+        viewModel.password.doubleBind(passwordEditText.getInput())
+        viewModel.confirmPassword.doubleBind(confirmPasswordEditText.getInput())
+
         signUpButton.setOnClickListener {
             viewModel.signUp()
         }
