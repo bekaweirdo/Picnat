@@ -6,11 +6,11 @@
         <attr name="EditTextWithTitle_Text" format="string"/>
         <attr name="EditTextWithTitle_TextColor" format="color"/>
         <attr name="EditTextWithTitle_InputType" format="integer">
-            <enum name="text" value="0x00000001"/>
-            <enum name="number" value="0x00000002"/>
-            <enum name="decimal" value="0x00002000"/>
-            <enum name="email" value="0x00000020"/>
-            <enum name="password" value="0x00000010"/>
+            <enum name="text" value="1"/>
+            <enum name="number" value="2"/>
+            <enum name="decimal" value="3"/>
+            <enum name="email" value="4"/>
+            <enum name="password" value="5"/>
         </attr>
     </declare-styleable>
 

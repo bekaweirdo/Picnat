@@ -1,5 +1,6 @@
 package com.picnat.feature_auth.ui.login
 
+import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.picnat.core.base.BaseFragment
@@ -22,7 +23,7 @@ class LogInFragment : BaseFragment<LogInViewModel>() {
     private lateinit var loginButton : RoundedButton
     private lateinit var signUpText : TextView
 
-    override fun initViews(view: View) {
+    override fun initViews(view: View, savedInstanceState: Bundle?) {
         emailEditText = view.findViewById(R.id.authLoginEmail)
         passwordEditText = view.findViewById(R.id.authLoginPassword)
         loginButton = view.findViewById(R.id.authLoginButton)
@@ -36,8 +37,8 @@ class LogInFragment : BaseFragment<LogInViewModel>() {
     override fun onBindViewModel(viewModel: LogInViewModel) {
         super.onBindViewModel(viewModel)
         loginButton.setOnClickListener {
-            val email = emailEditText.getInput()
-            val password = passwordEditText.getInput()
+            val email = emailEditText.getInputText()
+            val password = passwordEditText.getInputText()
             viewModel.login(email, password)
         }
     }

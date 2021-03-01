@@ -1,3 +1,11 @@
+package com.picnat.core.utils
+
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.MutableLiveData
+
 //package com.picnat.core.utils
 //
 //import android.util.Log
