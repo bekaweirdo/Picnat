@@ -13,6 +13,7 @@ import com.github.terrakok.cicerone.NavigatorHolder
 import com.picnat.app.PicnatAppNavigator
 import com.picnat.app.R
 import com.picnat.core.base.BaseFragment
+import com.picnat.core.navigation.api.GlobalNavigator
 import com.picnat.core.navigation.impl.GlobalNavigatorImpl
 import com.picnat.feature_auth.feature.AuthFeature
 import com.picnat.feature_splash.feature.SplashFeature
@@ -21,7 +22,7 @@ import org.koin.core.parameter.parametersOf
 
 abstract class BaseActivity : AppCompatActivity() {
 
-    protected val globalNavigator : GlobalNavigatorImpl by inject()
+    protected val globalNavigator : GlobalNavigator by inject()
 
     private lateinit var loadingLayout : FrameLayout
     private val navigatorHolder: NavigatorHolder by inject()

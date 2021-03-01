@@ -4,16 +4,16 @@ import androidx.lifecycle.viewModelScope
 import com.picnat.core.App
 import com.picnat.core.base.BaseFeatureVM
 import com.picnat.core.data.models.User
-import com.picnat.core.data.repository.user_repository.UserRepositoryImpl
 import com.picnat.core.network.extension.go
 import com.picnat.feature_auth.R
-import com.picnat.feature_auth.data.repository.AuthRepositoryImpl
+import com.picnat.feature_auth.domain.SaveUserUseCase
+import com.picnat.feature_auth.domain.SignUpUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class SignUpInfoViewModel(
-    private val authRepository: AuthRepositoryImpl,
-    private val userRepository: UserRepositoryImpl
+    private val saveUserUseCase: SaveUserUseCase,
+    private val signUpUseCase: SignUpUseCase
 ) : BaseFeatureVM() {
 
     fun signUp(
@@ -27,7 +27,7 @@ class SignUpInfoViewModel(
             errorMessage.postValue(resourceProvider.getString(R.string.fill_all_the_fields))
 
         viewModelScope.launch(Dispatchers.IO) {
-            authRepository.signUp(email, password).go(
+            signUpUseCase.invoke(SignUpUseCase.Params(email, password)).go(
                 loading = { showLoading() },
                 onFinished = { hideLoading() },
                 onSuccessWithData = {
@@ -48,7 +48,7 @@ class SignUpInfoViewModel(
 
     private fun writeUserData(user: User) {
         viewModelScope.launch(Dispatchers.IO) {
-            userRepository.saveData(user).go(
+            saveUserUseCase.invoke(SaveUserUseCase.Params(user)).go(
                 loading = { showLoading() },
                 onFinished = { hideLoading() },
                 onSuccessWithData = {
