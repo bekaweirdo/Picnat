@@ -3,13 +3,11 @@ package com.picnat.feature_auth.ui.sign_up
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import com.picnat.core.base.BaseFragment
 import com.picnat.core_components.view.button.RoundedButton
 import com.picnat.core_components.view.edit_text.EditTextWithTitle
 import com.picnat.feature_auth.R
 import com.picnat.feature_auth.feature.AuthFeature
-import com.picnat.feature_auth.ui.login.LogInFragment
 import org.koin.android.ext.android.inject
 
 class SignUpFragment : BaseFragment<SignUpViewModel>() {
@@ -24,7 +22,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel>() {
     private lateinit var signUpButton: RoundedButton
     private lateinit var logInText: TextView
 
-    override fun initViews(view: View) {
+    override fun initViews(view: View, savedInstanceState: Bundle?) {
         emailEditText = view.findViewById(R.id.authSignUpEmail)
         passwordEditText = view.findViewById(R.id.authSignUpPassword)
         confirmPasswordEditText = view.findViewById(R.id.authSignUpPasswordConfirm)
@@ -39,10 +37,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel>() {
     override fun onBindViewModel(viewModel: SignUpViewModel) {
         super.onBindViewModel(viewModel)
         signUpButton.setOnClickListener {
-            val email = emailEditText.getInput()
-            val password = passwordEditText.getInput()
-            val confirmPassword = confirmPasswordEditText.getInput()
-            viewModel.signUp(email, password, confirmPassword)
+            viewModel.signUp()
         }
     }
 }
