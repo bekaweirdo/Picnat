@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.picnat.core.R
 import com.picnat.core.locale.Language
+import com.picnat.core_components.extensions.inflate
 import com.picnat.core_components.menu.adapter.BottomMenuAdapter
 import com.picnat.core_components.menu.adapter.MenuViewHolder
 
@@ -25,21 +26,19 @@ class LanguageAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.language_list_view_item,
-                parent,
-                false
-            )
+            parent.inflate(R.layout.language_list_view_item)
         )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = languages[position]
         Glide.with(holder.itemView.context).load(item.imageId).into(holder.languageImageView)
-        holder.languageTextView.text = item.displayName
-        holder.rootContainer.setOnClickListener {
-            adapterListener?.onItemClickListener(position,item)
-            notifyDataSetChanged()
+        holder.apply {
+            languageTextView.text = item.displayName
+            rootContainer.setOnClickListener {
+                adapterListener?.onItemClickListener(position,item)
+                notifyDataSetChanged()
+            }
         }
     }
 

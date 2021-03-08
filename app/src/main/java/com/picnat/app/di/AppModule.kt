@@ -1,5 +1,6 @@
 package com.picnat.app.di
 
+import android.content.Context
 import androidx.room.Room
 import com.picnat.app.PicnatAppNavigator
 import com.picnat.app.data.database.PicnatDatabase
@@ -8,6 +9,7 @@ import com.github.terrakok.cicerone.Router
 import com.google.firebase.firestore.FirebaseFirestore
 import com.picnat.core.data.repository.user_repository.UserRepositoryImpl
 import com.picnat.core.data.resource_provider.ResourceProvider
+import com.picnat.core.data.shared_preferences.SharedPreferencesManager
 import com.picnat.core.data.shared_preferences.SharedPreferencesManagerImpl
 import com.picnat.core.locale.LocaleManager
 import com.picnat.core.navigation.impl.GlobalNavigatorImpl
@@ -37,7 +39,11 @@ val navigationModule = module {
 }
 
 val sharedPreference = module {
-    single { SharedPreferencesManagerImpl(androidContext()) }
+    fun provideSharedPreference(context: Context): SharedPreferencesManagerImpl {
+        return SharedPreferencesManagerImpl(context)
+    }
+    
+    single<SharedPreferencesManager> { provideSharedPreference(context = androidContext()) }
 }
 
 val localeManagerModule  = module {

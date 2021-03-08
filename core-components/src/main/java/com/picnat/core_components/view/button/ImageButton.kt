@@ -8,23 +8,19 @@ import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.picnat.core_components.extensions.runDelayed
 
-class ImageButton : ConstraintLayout, View.OnTouchListener{
-
-    constructor(context: Context): super(context) {
-        init(null,0)
-    }
-
-    constructor(context: Context, attrs: AttributeSet): super(context,attrs){
-        init(attrs, 0)
-    }
-
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int): super(context, attrs, defStyle){
+class ImageButton constructor(
+    context: Context,
+    attrs: AttributeSet,
+    defStyle: Int
+) : ConstraintLayout(context, attrs, defStyle), View.OnTouchListener{
+    init {
         init(attrs,defStyle)
     }
 
     private fun init(attrs: AttributeSet?,defStyle: Int){
         setOnTouchListener(this)
     }
+
     override fun onTouch(view: View?, motionEvent: MotionEvent?): Boolean {
         when (motionEvent?.action) {
             MotionEvent.ACTION_DOWN -> {
