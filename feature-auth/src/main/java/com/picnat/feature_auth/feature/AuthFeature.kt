@@ -1,12 +1,19 @@
 package com.picnat.feature_auth.feature
 
 import android.os.Bundle
+import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import com.google.firebase.auth.FirebaseAuth
 import com.picnat.core.base.BaseFeature
+import com.picnat.core.navigation.api.LocalNavigator
 import com.picnat.core.navigation.impl.LocalNavigatorImpl
 import com.picnat.feature_auth.data.data_source.AuthDataSource
+import com.picnat.feature_auth.data.repository.AuthRepository
 import com.picnat.feature_auth.data.repository.AuthRepositoryImpl
+import com.picnat.feature_auth.domain.GetUserUseCase
+import com.picnat.feature_auth.domain.LogInUseCase
+import com.picnat.feature_auth.domain.SaveUserUseCase
+import com.picnat.feature_auth.domain.SignUpUseCase
 import com.picnat.feature_auth.ui.login.LogInFragment
 import com.picnat.feature_auth.ui.login.LogInViewModel
 import com.picnat.feature_auth.ui.sign_up.SignUpFragment
@@ -20,13 +27,23 @@ import org.koin.dsl.module
 object AuthFeature : BaseFeature {
 
     private val viewModelModule: Module = module {
-        viewModel { LogInViewModel(authRepository = get(), userRepository = get()) }
+        viewModel { LogInViewModel(getUserUseCase = get(), logInUseCase = get()) }
         viewModel { SignUpViewModel() }
-        viewModel { SignUpInfoViewModel(authRepository = get(), userRepository = get()) }
+        viewModel { SignUpInfoViewModel(saveUserUseCase = get(), signUpUseCase = get()) }
+    }
+
+    private val useCasesModule = module {
+        single { GetUserUseCase(userRepository = get(), dispatcherProvider = get()) }
+        single { SaveUserUseCase(userRepository = get(), dispatcherProvider = get()) }
+        single { LogInUseCase(authDataSource = get(), dispatcherProvider = get()) }
+        single { SignUpUseCase(authDataSource = get(), dispatcherProvider = get()) }
     }
 
     private val repositoryModule: Module = module {
-        single { AuthRepositoryImpl(authDataSource = get()) }
+        fun provideAuthRepository(authDataSource: AuthDataSource) : AuthRepository {
+            return AuthRepositoryImpl(authDataSource)
+        }
+        single { provideAuthRepository(authDataSource = get()) }
     }
 
     private val dataSourceModule: Module = module {
@@ -37,7 +54,10 @@ object AuthFeature : BaseFeature {
 //        scope<AuthFeatureFragment> {
 //            scoped { LocalNavigatorHandlerImpl(get()) }
 //        }
-        single { LocalNavigatorImpl(get()) }
+        fun provideLocalNavigator(router: Router) : LocalNavigator {
+            return LocalNavigatorImpl(router)
+        }
+        single { provideLocalNavigator(get()) }
     }
 
 //    override val featureFragment: KClass<out BaseFeatureFragment<*>>
@@ -46,6 +66,7 @@ object AuthFeature : BaseFeature {
     override val modulesList = listOf(
         dataSourceModule,
         repositoryModule,
+        useCasesModule,
         viewModelModule,
         localNavigatorModule
     )

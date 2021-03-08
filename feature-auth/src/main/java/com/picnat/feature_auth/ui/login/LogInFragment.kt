@@ -1,5 +1,6 @@
 package com.picnat.feature_auth.ui.login
 
+import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
@@ -31,14 +32,14 @@ class LogInFragment : BaseFragment<LogInViewModel>() {
     private lateinit var languageLabel: TextView
     private var changeLanguageMenu: BottomMenuDialog? = null
 
-    override fun initViews(view: View) {
+    override fun initViews(view: View, savedInstanceState: Bundle?) {
         emailEditText = view.findViewById(R.id.authLoginEmail)
         passwordEditText = view.findViewById(R.id.authLoginPassword)
         loginButton = view.findViewById(R.id.authLoginButton)
         signUpText = view.findViewById(R.id.authLogInSignUp)
 
         signUpText.setOnClickListener {
-            localNavigator.navigateTo(AuthFeature.AuthScreens.authSignUp())
+            localNavigator.replaceScreen(AuthFeature.AuthScreens.authSignUp())
         }
         languageImageView = view.findViewById(R.id.languageImageView)
         languageLabel = view.findViewById(R.id.languageLabel)
@@ -50,8 +51,8 @@ class LogInFragment : BaseFragment<LogInViewModel>() {
             changeLanguageMenu?.show()
         }
         loginButton.setOnClickListener {
-            val email = emailEditText.getInput()
-            val password = passwordEditText.getInput()
+            val email = emailEditText.getInputText()
+            val password = passwordEditText.getInputText()
             viewModel.login(email, password)
         }
         languageLabel.text = vm.localManager.selectedLanguage.shortName

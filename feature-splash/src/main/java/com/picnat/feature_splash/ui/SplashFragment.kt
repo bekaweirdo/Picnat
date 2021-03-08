@@ -1,5 +1,6 @@
 package com.picnat.feature_splash.ui
 
+import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import com.picnat.core.base.BaseFragment
@@ -14,14 +15,10 @@ class SplashFragment : BaseFragment<SplashViewModel>() {
 
     private lateinit var splashLogo: ImageView
 
-    override fun initViews(view: View) {
+    override fun initViews(view: View, savedInstanceState: Bundle?) {
         splashLogo = view.findViewById(R.id.splashLogo)
         splashLogo.setOnClickListener{
             viewModel.logIn()
         }
-    }
-
-    override fun onBindViewModel(vm: SplashViewModel) {
-        super.onBindViewModel(vm)
     }
 }

@@ -9,39 +9,37 @@ import com.picnat.core.locale.Language
 import com.picnat.core.locale.LocaleManager
 import com.picnat.core.network.extension.go
 import com.picnat.feature_auth.R
-import com.picnat.feature_auth.data.repository.AuthRepositoryImpl
-import kotlinx.coroutines.Dispatchers
+import com.picnat.feature_auth.domain.GetUserUseCase
+import com.picnat.feature_auth.domain.LogInUseCase
+import com.picnat.feature_auth.feature.ui.AuthFeatureVM
+import com.picnat.feature_auth.utils.ext.isEmailValid
 import kotlinx.coroutines.launch
 import org.koin.core.component.inject
 
 class LogInViewModel(
-    private val authRepository: AuthRepositoryImpl,
-    private val userRepository: UserRepositoryImpl
-) : BaseFeatureVM() {
+    private val getUserUseCase: GetUserUseCase,
+    private val logInUseCase: LogInUseCase
+) : AuthFeatureVM() {
 
     val localManager: LocaleManager by inject()
     var selectOnLanguageChange = false
 
     fun login(email: String, password: String) {
-
-        if (email.isBlank() || password.isBlank()) {
-            errorMessage.postValue(resourceProvider.getString(R.string.fill_all_the_fields))
-            return
-        }
-
-        viewModelScope.launch(Dispatchers.IO) {
-            authRepository.login(email, password).go(
-                loading = { showLoading() },
-                onFinished = { hideLoading() },
-                onSuccessWithData = { getUserData(it!!) },
-                onFailure = { errorMessage.postValue(resourceProvider.getString(R.string.coud_not_get_user_data)) }
-            )
+        if(checkFields(listOf(email, password)) && checkEmailValidity(email) && checkPasswordValidity(password)){
+            viewModelScope.launch {
+                logInUseCase.invoke(LogInUseCase.Params(email, password)).go(
+                    loading = { showLoading() },
+                    onFinished = { hideLoading() },
+                    onSuccessWithData = { getUserData(it!!) },
+                    onFailure = { errorMessage.postValue(resourceProvider.getString(R.string.coud_not_get_user_data)) }
+                )
+            }
         }
     }
 
     private fun getUserData(user: FirebaseUser) {
-        viewModelScope.launch(Dispatchers.IO) {
-            userRepository.getData(user.uid).go(
+        viewModelScope.launch {
+            getUserUseCase.invoke(GetUserUseCase.Params(user.uid)).go(
                 loading = { showLoading() },
                 onFinished = { hideLoading() },
                 onSuccessWithData = { App.currentUser = it },

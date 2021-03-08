@@ -1,5 +1,6 @@
 package com.picnat.feature_auth.ui.sign_up
 
+import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.picnat.core.base.BaseFragment
@@ -21,7 +22,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel>() {
     private lateinit var signUpButton: RoundedButton
     private lateinit var logInText: TextView
 
-    override fun initViews(view: View) {
+    override fun initViews(view: View, savedInstanceState: Bundle?) {
         emailEditText = view.findViewById(R.id.authSignUpEmail)
         passwordEditText = view.findViewById(R.id.authSignUpPassword)
         confirmPasswordEditText = view.findViewById(R.id.authSignUpPasswordConfirm)
@@ -36,10 +37,7 @@ class SignUpFragment : BaseFragment<SignUpViewModel>() {
     override fun onBindViewModel(vm: SignUpViewModel) {
         super.onBindViewModel(vm)
         signUpButton.setOnClickListener {
-            val email = emailEditText.getInput()
-            val password = passwordEditText.getInput()
-            val confirmPassword = confirmPasswordEditText.getInput()
-            vm.signUp(email, password, confirmPassword)
+            vm.signUp()
         }
     }
 }

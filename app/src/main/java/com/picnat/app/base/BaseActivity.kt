@@ -8,20 +8,22 @@ import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.picnat.app.PicnatAppNavigator
 import com.picnat.app.R
 import com.picnat.core.base.BaseFragment
+import com.picnat.core.navigation.api.GlobalNavigator
 import com.picnat.core.navigation.impl.GlobalNavigatorImpl
 import com.picnat.feature_auth.feature.AuthFeature
 import com.picnat.feature_splash.feature.SplashFeature
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : FragmentActivity() {
 
-    protected val globalNavigator : GlobalNavigatorImpl by inject()
+    protected val globalNavigator : GlobalNavigator by inject()
 
     private lateinit var loadingLayout : FrameLayout
     private val navigatorHolder: NavigatorHolder by inject()
@@ -48,8 +50,8 @@ abstract class BaseActivity : AppCompatActivity() {
         loadingLayout = findViewById(R.id.loadingLayout)
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onResumeFragments() {
+        super.onResumeFragments()
         navigatorHolder.setNavigator(navigator)
     }
 

@@ -3,6 +3,7 @@ package com.picnat.feature_splash.feature
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 import com.google.firebase.auth.FirebaseAuth
 import com.picnat.core.base.BaseFeature
+import com.picnat.feature_splash.domain.GetUserUseCase
 import com.picnat.feature_splash.ui.SplashFragment
 import com.picnat.feature_splash.ui.SplashViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -17,12 +18,12 @@ object SplashFeature : BaseFeature {
         viewModel { SplashViewModel(get(), get()) }
     }
 
-    override val modulesList: List<Module>
-        get() = listOf(splashModule)
-
-    override fun unloadModules() {
-        unloadKoinModules(modulesList)
+    private val splashUseCases = module {
+        single { GetUserUseCase(get(), get()) }
     }
+
+    override val modulesList: List<Module>
+        get() = listOf(splashUseCases, splashModule)
 
     object SplashScreens {
         fun splashScreen() = FragmentScreen { SplashFragment() }

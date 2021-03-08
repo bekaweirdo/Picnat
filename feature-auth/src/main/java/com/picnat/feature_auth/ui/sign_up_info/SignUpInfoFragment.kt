@@ -7,7 +7,6 @@ import com.picnat.core_components.view.button.RoundedButton
 import com.picnat.core_components.view.edit_text.EditTextWithTitle
 import com.picnat.feature_auth.R
 import com.picnat.feature_auth.data.model.SignUpInfoModel
-import com.picnat.feature_auth.ui.sign_up.SignUpFragment
 import org.koin.android.ext.android.inject
 
 class SignUpInfoFragment : BaseFragment<SignUpInfoViewModel>() {
@@ -24,7 +23,7 @@ class SignUpInfoFragment : BaseFragment<SignUpInfoViewModel>() {
     private lateinit var lastNameEditText: EditTextWithTitle
     private lateinit var signUpButton: RoundedButton
 
-    override fun initViews(view: View) {
+    override fun initViews(view: View, savedInstanceState: Bundle?) {
         usernameEditText = view.findViewById(R.id.authSignUpUsername)
         firstNameEditText = view.findViewById(R.id.authSignUpName)
         lastNameEditText = view.findViewById(R.id.authSignUpLastName)
@@ -34,9 +33,9 @@ class SignUpInfoFragment : BaseFragment<SignUpInfoViewModel>() {
             viewModel.signUp(
                 email = signUpInfoModel.email,
                 password = signUpInfoModel.password,
-                username = usernameEditText.getInput(),
-                firstName = firstNameEditText.getInput(),
-                lastName = lastNameEditText.getInput()
+                username = usernameEditText.getInputText(),
+                firstName = firstNameEditText.getInputText(),
+                lastName = lastNameEditText.getInputText()
             )
         }
     }
