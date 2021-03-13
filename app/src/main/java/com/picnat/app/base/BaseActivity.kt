@@ -44,7 +44,6 @@ abstract class BaseActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_base)
         registerBroadcast()
         setContentView(R.layout.activity_base)
         loadingLayout = findViewById(R.id.loadingLayout)
