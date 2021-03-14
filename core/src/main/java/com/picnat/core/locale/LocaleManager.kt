@@ -1,8 +1,8 @@
 package com.picnat.core.locale
 
-import com.picnat.core.data.shared_preferences.SharedPreferencesManagerImpl
+import com.picnat.core.data.shared_preferences.SharedPreferencesManager
 
-class LocaleManager(private val sharedPreference: SharedPreferencesManagerImpl) {
+class LocaleManager(private val sharedPreference: SharedPreferencesManager) {
 
     var languageOptions: List<Language> = listOf(Language.EN,Language.GE,Language.FR)
     var selectedLanguage: Language
