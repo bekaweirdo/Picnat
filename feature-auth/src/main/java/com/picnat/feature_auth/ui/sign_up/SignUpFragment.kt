@@ -34,10 +34,10 @@ class SignUpFragment : BaseFragment<SignUpViewModel>() {
         }
     }
 
-    override fun onBindViewModel(viewModel: SignUpViewModel) {
-        super.onBindViewModel(viewModel)
+    override fun onBindViewModel(vm: SignUpViewModel) {
+        super.onBindViewModel(vm)
         signUpButton.setOnClickListener {
-            viewModel.signUp()
+            vm.signUp()
         }
     }
 }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.picnat.core_components.menu.slidemenu.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomLayoutContainer"
+    android:background="@color/burgundy"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:clickable="true"
+    app:umanoPanelHeight="0dp"
+    app:umanoShadowHeight="0dp"
+    app:umanoParallaxOffset="50dp"
+    app:umanoScrollableView="@+id/menuRecyclerView"
+    app:umanoOverlay="true"
+    android:focusable="true">
+
+    <!-- MAIN content -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- SLIDING panel -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/menu_background"
+        android:id="@+id/dragContainerView">
+
+    <com.picnat.core_components.view.button.ImageButton
+        android:id="@+id/menuTitleImage"
+        android:layout_width="@dimen/dimen_p_40"
+        android:layout_height="@dimen/dimen_p_40"
+        android:layout_margin="@dimen/dimen_p_20"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/menuTitleMessageLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_p_70"
+        android:paddingTop="@dimen/dimen_p_20"
+        android:textSize="@dimen/dimen_sp_14"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/menuTitleImage"
+        app:layout_constraintStart_toEndOf="@id/menuTitleImage"
+        app:layout_constraintTop_toTopOf="@+id/menuTitleImage"
+        tools:text="Select a Language" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/menuRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/dimen_p_20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/menuTitleImage" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.picnat.core_components.menu.slidemenu.SlidingUpPanelLayout>

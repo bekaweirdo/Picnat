@@ -13,9 +13,13 @@ import com.picnat.core.data.repository.user_repository.UserRepository
 import com.picnat.core.data.repository.user_repository.UserRepositoryImpl
 import com.picnat.core.data.resource_provider.ResourceProvider
 import com.picnat.core.navigation.api.GlobalNavigator
+import com.picnat.core.data.shared_preferences.SharedPreferencesManager
+import com.picnat.core.data.shared_preferences.SharedPreferencesManagerImpl
+import com.picnat.core.locale.LocaleManager
 import com.picnat.core.navigation.impl.GlobalNavigatorImpl
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidApplication
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
 val appModule = module {
@@ -47,4 +51,16 @@ val navigationModule = module {
         return GlobalNavigatorImpl(router, context)
     }
     single { provideGlobalNavigator(router = get(), get()) }
+}
+
+val sharedPreference = module {
+    fun provideSharedPreference(context: Context): SharedPreferencesManagerImpl {
+        return SharedPreferencesManagerImpl(context)
+    }
+
+    single<SharedPreferencesManager> { provideSharedPreference(context = androidContext()) }
+}
+
+val localeManagerModule  = module {
+    single { LocaleManager(get()) }
 }

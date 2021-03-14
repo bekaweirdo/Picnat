@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -19,14 +20,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.picnat.core_components.view.edit_text.EditTextWithTitle
-            android:id="@+id/authLoginEmail"
-            android:layout_width="match_parent"
+        <com.picnat.core_components.view.button.ImageButton
+            android:id="@+id/languageImageView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_p_150"
-            app:EditTextWithTitle_Hint="@string/auth_email"
-            app:EditTextWithTitle_InputType="email"
-            app:layout_constraintTop_toBottomOf="@id/logInLogo" />
+            android:layout_marginTop="@dimen/dimen_p_20"
+            android:background="@drawable/rounded_button_background"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/languageLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/dimen_sp_15"
+                android:layout_marginStart="@dimen/dimen_p_12"
+                android:layout_marginEnd="@dimen/dimen_p_12"
+                tools:text="Language Label"
+                app:layout_constraintEnd_toEndOf="@id/languageImageView"
+                app:layout_constraintTop_toTopOf="@id/languageImageView"
+                app:layout_constraintBottom_toBottomOf="@id/languageImageView"
+                app:layout_constraintStart_toStartOf="@id/languageImageView"/>
+
+        </com.picnat.core_components.view.button.ImageButton>
+
+    <com.picnat.core_components.view.edit_text.EditTextWithTitle
+        android:id="@+id/authLoginEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_p_150"
+        app:EditTextWithTitle_Hint="@string/auth_email"
+        app:layout_constraintTop_toBottomOf="@id/logInLogo" />
 
         <com.picnat.core_components.view.edit_text.EditTextWithTitle
             android:id="@+id/authLoginPassword"

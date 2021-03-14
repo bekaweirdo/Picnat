@@ -50,11 +50,11 @@ abstract class BaseFragment<VM : BaseFeatureVM?> : Fragment() {
     }
 
 
-    open fun onBindViewModel(viewModel: VM) {
-        viewModel?.errorMessage?.observe {
+    open fun onBindViewModel(vm: VM) {
+        vm?.errorMessage?.observe {
             Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
         }
-        viewModel?._showLoading?.observe { showLoading ->
+        vm?._showLoading?.observe { showLoading ->
             val intent = Intent(LOADING).apply {
                 putExtra(LOADING, showLoading)
             }
